@@ -5,6 +5,7 @@ import { filterImage } from "../../functions/filterImage.ts";
 import Card from "../Card.tsx";
 import Scoreboard from "../Scoreboard.tsx";
 import "../../styles/GamePlateform.scss";
+import GenshinLogo from "../../assets/genshin_impact_logo.svg";
 
 export interface gameContextType {
 	charList: string[];
@@ -29,7 +30,10 @@ export default function GamePage() {
 	return (
 		<gameContext.Provider value={{ charList, setCharList }}>
 			<div className="main-game-container">
-				<h1 className='title'>Memory Cards</h1>
+				<div className="header">
+					<img id='genshin-logo' src={GenshinLogo} alt="" />
+					<h1 className='title'>Memory Cards</h1>
+				</div>
 				<Scoreboard />
 				<div className="card-container">
 					{/* Populate the following with a bunch of cards base on data receive from fetchAPI */}

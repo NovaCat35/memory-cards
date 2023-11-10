@@ -10,13 +10,23 @@ interface CardProps {
 	charName: string;
 }
 
+// For example: arataki-itto becomes Arataki Itto
+function normalizeName(charName: string) {
+	charName = charName.replace(/-/g, " ");
+	let charNameList = charName.split(" ");
+	charNameList = charNameList.map((name) => name.charAt(0).toUpperCase() + name.slice(1));
+	charName = charNameList.join(" ");
+	return charName;
+}
+
 function Card({ charName }: CardProps) {
 	const { charList, setCharList } = useContext<gameContextType>(gameContext);
 	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
-	const imageSrc = charImageMap[charName];
+	const imageSrc = charImageMap[charName]; // Finds the img src from the hashmap in filterImage.ts
+	charName = normalizeName(charName);
 
 	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-		const targetName = e.currentTarget.getAttribute("id") || ''; // typescript wants assurance there's no 'null'
+		const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
 		const cardsLimit = charList.length;
 		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
 		shuffle({ charList, setCharList });
