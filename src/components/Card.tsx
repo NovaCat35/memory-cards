@@ -1,27 +1,42 @@
-import {useContext} from "react";
-import {charImageMap} from "../functions/filterImage";
-import {contextType, charContext} from "./pages/GamePage";
-import "../styles/Card.scss";
+import { useContext } from "react";
+import { charImageMap } from "../functions/filterImage";
+import { gameContextType, gameContext } from "./pages/GamePage";
+import { pageContextType, pageContext } from "../App";
 import shuffle from "../functions/shuffle";
+import checkScoreCondition from "../functions/checkCondition";
+import "../styles/Card.scss";
 
 interface CardProps {
 	charName: string;
 }
 
 function Card({ charName }: CardProps) {
-  const {charList, setCharList} = useContext<contextType>(charContext);
+	const { charList, currScore, bestScore, setCharList, setBestScore, setCurrScore } = useContext<gameContextType>(gameContext);
+	const { setWinActive, setLoseActive } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName];
-  
-  const handleClick = () => {
-    shuffle({charList, setCharList});
-  }
+
+	const handleClick = (e) => {
+		const targetName = e.target.getAttribute("id");
+		const cardsLimit = charList.length;
+		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
+		shuffle({ charList, setCharList });
+		setPageStatus(pageStatus);
+	};
+
+	const setPageStatus = (pageStatus: string) => {
+		if (pageStatus == "win") {
+			setWinActive(true);
+		} else if (pageStatus == "lose") {
+			setLoseActive(true);
+		}
+	};
 
 	return (
 		<div className="main-card-container">
 			<h1>{charName}</h1>
-			<img src={imageSrc} alt="" onClick={handleClick}/>
+			<img id={charName} src={imageSrc} alt="" onClick={handleClick} />
 		</div>
-	)
+	);
 }
 
 export default Card;

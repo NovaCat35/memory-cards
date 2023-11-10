@@ -1,0 +1,16 @@
+.main-scoreboard {
+   font-size: 1.5rem;
+   display: flex;
+   justify-content: center;
+   gap: 15px;
+   h2 {
+      margin: 0;
+      font-size: 1.5rem;
+   }
+   .curr-score, .best-score {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+}

@@ -110,15 +110,9 @@ const charImageMap: { [key: string]: string } = {
 };
 
 function filterImage(charList: string[]) {
-	// Set regex so we can test if current charImg is 'paimon.webp' (i.e. official TCG img doesn't exist...as of 11/9/2023)
-	const regex = /paimon\.webp/;
-
 	// Filter for all character that exist within the hashmap.
-	// This way we can only get those character that have the official TCG image released
-	const filteredList = charList.filter((charName) => {
-		const imageFound = charImageMap[charName] || paimonImage;
-		return !regex.test(imageFound); 
-	});
+	// This way we can only get those character that have the official TCG character image released.
+	const filteredList = charList.filter((charName) => charImageMap[charName]);
 	return filteredList;
 }
 
