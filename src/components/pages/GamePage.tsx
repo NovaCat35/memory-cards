@@ -8,10 +8,6 @@ import "../../styles/GamePlateform.scss";
 
 export interface gameContextType {
 	charList: string[];
-	currScore: number;
-	bestScore: number;
-	setCurrScore: React.Dispatch<React.SetStateAction<number>>;
-	setBestScore: React.Dispatch<React.SetStateAction<number>>;
 	setCharList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
@@ -20,8 +16,6 @@ export const gameContext = createContext<gameContextType>({} as gameContextType)
 export default function GamePage() {
 	const [charList, setCharList] = useState<string[]>([]);
 	const [currCharList, setCurrCharList] = useState<string[]>([]);
-	const [currScore, setCurrScore] = useState(0);
-	const [bestScore, setBestScore] = useState(0);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -33,7 +27,7 @@ export default function GamePage() {
 	}, []);
 
 	return (
-		<gameContext.Provider value={{ charList, setCharList, currScore, bestScore, setCurrScore, setBestScore }}>
+		<gameContext.Provider value={{ charList, setCharList }}>
 			<div className="main-game-container">
 				<h1>Memory Cards</h1>
 				<Scoreboard />

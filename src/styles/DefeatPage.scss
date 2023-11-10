@@ -1,0 +1,8 @@
+@import "./mixins.scss";
+
+.main-lose-container {
+   @include endPage();
+   button {
+      background: linear-gradient(90deg, rgb(243, 74, 74) 0%, rgb(162, 103, 218) 78%, rgb(123, 93, 242) 100%);
+   }
+}

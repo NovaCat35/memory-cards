@@ -11,12 +11,12 @@ interface CardProps {
 }
 
 function Card({ charName }: CardProps) {
-	const { charList, currScore, bestScore, setCharList, setBestScore, setCurrScore } = useContext<gameContextType>(gameContext);
-	const { setWinActive, setLoseActive } = useContext<pageContextType>(pageContext);
+	const { charList, setCharList } = useContext<gameContextType>(gameContext);
+	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName];
 
-	const handleClick = (e) => {
-		const targetName = e.target.getAttribute("id");
+	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+		const targetName = e.currentTarget.getAttribute("id") || ''; // typescript wants assurance there's no 'null'
 		const cardsLimit = charList.length;
 		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
 		shuffle({ charList, setCharList });

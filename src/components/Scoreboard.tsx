@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {gameContextType, gameContext} from "./pages/GamePage";
+import {pageContextType, pageContext} from "../App";
 import "../styles/ScoreBoard.scss"
 
 function Scoreboard() {
-   const {currScore, bestScore} = useContext<gameContextType>(gameContext);
+   const {currScore, bestScore} = useContext<pageContextType>(pageContext);
 
   return (
     <div className="main-scoreboard">
