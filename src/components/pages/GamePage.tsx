@@ -29,7 +29,7 @@ export default function GamePage() {
 	return (
 		<gameContext.Provider value={{ charList, setCharList }}>
 			<div className="main-game-container">
-				<h1>Memory Cards</h1>
+				<h1 className='title'>Memory Cards</h1>
 				<Scoreboard />
 				<div className="card-container">
 					{/* Populate the following with a bunch of cards base on data receive from fetchAPI */}

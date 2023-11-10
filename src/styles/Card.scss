@@ -1,4 +1,15 @@
 .main-card-container {
+   position: relative;
+   h1 {
+      text-align: center;
+      color: rgb(255, 255, 255);
+      text-shadow: 1px 1px 5px black;
+      font-size: 1.3rem;
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      transform: translate(-50%, -50%);
+   }
    img{
       cursor: pointer;
       width: 130px;

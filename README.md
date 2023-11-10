@@ -19,4 +19,7 @@ MEMORY CARD
 
 
 ## Sources and References
-- https://genshin.dev/
+- API: https://genshin.dev/
+- https://wallpaperwaifu.com/pixel-art/hot-pot-tub-pixel-genshin-impact-live-wallpaper/
+- https://wallpaperwaifu.com/pixel-art/klee-walking-pixel-genshin-impact-live-wallpaper/
+- https://tenor.com/view/genshin-impact-gif-24086945
