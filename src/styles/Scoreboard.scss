@@ -4,10 +4,10 @@
    justify-content: center;
    align-items: center;
    gap: 35px;
-   background: rgba(0, 0, 0, 0.64);
+   background: rgba(3, 20, 46, 0.64);
    border-radius: 10px;
    width: 70vw;
-   padding: 10px;
+   padding: 7px;
    h2 {
       text-shadow: 1px 1px 1px rgb(95, 194, 247);
       text-align: center;
@@ -15,6 +15,8 @@
       font-size: 1.5rem;
       display: flex;
       flex-direction: column;
+      padding-bottom: 3px;
+
       &:after {
          content: '';
          border-bottom: 3px double rgb(55, 180, 230);
@@ -25,5 +27,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+   }
+   @media screen and (min-width: 700px) {
+      width: 300px;
    }
 }

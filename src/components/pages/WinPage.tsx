@@ -20,7 +20,7 @@ function WinPage() {
 
   return (
     <div className="main-lose-container">
-      <h1>You Win, Well Played!</h1>
+      <h1>You Made It, Well Played!</h1>
       <img src={gifSrc} alt="victory gif" />
       <button onClick={() => setWinActive(false)}>Go again?</button>
     </div>

@@ -1,5 +1,8 @@
+@import "./Fonts.scss";
+
 .main-game-container {
 	color: rgb(255, 255, 255);
+	font-family: "Agbalumo", sans-serif;
 	text-shadow: 1px 1px 2px rgb(7, 14, 40);
 	height: 100vh;
 	overflow: auto;
@@ -9,16 +12,64 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
-	.header {
-		#genshin-logo {
-			// filter: $filter-white;
-			margin-top: 10px;
-			width: 200px;
+	header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 10px;
+		.main-title-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			.logo-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				#genshin-logo {
+					// filter: $filter-white;
+					margin-top: 10px;
+					width: 200px;
+				}
+				.divide {
+					color: rgb(65, 171, 220);
+					margin-top: 30px;
+					font-family: "Special Elite", serif;
+					font-size: 4rem;
+				}
+				.tcg-logo-container {
+					position: relative;
+					#tcg-logo {
+						width: 95px;
+					}
+					#text-logo {
+						position: absolute;
+						left: -12px;
+						bottom: -10px;
+						width: 120px;
+					}
+					.title {
+						text-align: center;
+						font-size: 1rem;
+					}
+				}
+			}
+			p {
+				background-color: rgba(7, 24, 49, 0.598);
+				padding: 5px;
+				border-radius: 10px;
+				margin: 0;
+				margin-top: 10px;
+			}
 		}
-		.title {
-			font-size: 2rem;
+		@media screen and (min-width: 700px) {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 10px 30px;
 		}
 	}
+
 	.card-container {
 		display: flex;
 		flex-wrap: wrap;

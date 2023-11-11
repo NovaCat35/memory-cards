@@ -20,7 +20,7 @@ function LosePage() {
 
 	return (
 		<div className="main-lose-container">
-			<h1>You Lose!</h1>
+			<h1>RIP. <br></br>Looks like you won't be making it out of Tenshukaku alive...</h1>
 			<img src={gifSrc} alt="victory gif" />
 			<button onClick={() => setLoseActive(false)}>Try again?</button>
 		</div>

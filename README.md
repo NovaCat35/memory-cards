@@ -1,6 +1,9 @@
 # Memory Card [WORK IN PROGRESS]
-A fun project inspired by Genshin Impact's character list, created based on this [React course](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) from The Odin Project.
+A fun project inspired by Genshin Impact's TCG card game combined with memory brain teaser game. 
 
+## DISCLAIMER & Inspiration ⚠️
+This is a fan-made project base on the game Genshin Impact. This project features materials protected by the Fair Use guidelines of Section 107 of the Copyright Act. All rights reserved to the copyright owners.
+Game premise is created based on this [React course](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) from The Odin Project
 ## Features
 - Loading screen [For getting api]
 - Level Difficulty
