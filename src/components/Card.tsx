@@ -20,7 +20,7 @@ function normalizeName(charName: string) {
 }
 
 function Card({ charName }: CardProps) {
-	const { charList, setCharList } = useContext<gameContextType>(gameContext);
+	const { charList, setCharList, setCardsCounter } = useContext<gameContextType>(gameContext);
 	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName]; // Finds the img src from the hashmap in filterImage.ts
 	charName = normalizeName(charName);
@@ -31,6 +31,7 @@ function Card({ charName }: CardProps) {
 		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
 		shuffle({ charList, setCharList });
 		setPageStatus(pageStatus);
+		setCardsCounter((counter: number) => counter + 1)
 	};
 
 	const setPageStatus = (pageStatus: string) => {

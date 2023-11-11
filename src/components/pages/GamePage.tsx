@@ -4,6 +4,7 @@ import fetchCharacters from "../../functions/fetchAPI.ts";
 import { filterImage } from "../../functions/filterImage.ts";
 import Card from "../Card.tsx";
 import Scoreboard from "../Scoreboard.tsx";
+import CardCounter from "../CardCounter.tsx";
 import "../../styles/GamePlateform.scss";
 import GenshinLogo from "../../assets/genshin_impact_logo.svg";
 import TCGLogo from "../../assets/tcg_logo.webp";
@@ -11,6 +12,8 @@ import TextLogo from "../../assets/text_logo.svg";
 
 export interface gameContextType {
 	charList: string[];
+	cardsCounter: number;
+	: React.Dispatch<React.SetStateAction<number>>;
 	setCharList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
@@ -19,6 +22,7 @@ export const gameContext = createContext<gameContextType>({} as gameContextType)
 export default function GamePage() {
 	const [charList, setCharList] = useState<string[]>([]);
 	const [currCharList, setCurrCharList] = useState<string[]>([]);
+	const [cardsCounter, setCardsCounter] = useState<number>(0);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -30,16 +34,16 @@ export default function GamePage() {
 	}, []);
 
 	return (
-		<gameContext.Provider value={{ charList, setCharList }}>
+		<gameContext.Provider value={{ charList, cardsCounter, setCharList, setCardsCounter }}>
 			<div className="main-game-container">
 				<header>
 					<div className="main-title-container">
 						<div className="logo-container">
-							<img id='genshin-logo' src={GenshinLogo} alt="genshin logo" />
-							<div className='divide'>X</div>
+							<img id="genshin-logo" src={GenshinLogo} alt="genshin logo" />
+							<div className="divide">X</div>
 							<div className="tcg-logo-container">
-								<img id='tcg-logo' src={TCGLogo} alt="tcg cards logo"/>
-								<img id='text-logo' src={TextLogo} alt="text logo"/>
+								<img id="tcg-logo" src={TCGLogo} alt="tcg cards logo" />
+								<img id="text-logo" src={TextLogo} alt="text logo" />
 							</div>
 						</div>
 						<p>A fan-made project inspired by the TCG card game</p>
@@ -52,6 +56,7 @@ export default function GamePage() {
 						<Card key={uuidv4()} charName={char} />
 					))}
 				</div>
+				<CardCounter cardsCounter={cardsCounter} totalCards={charList.length}/>
 			</div>
 		</gameContext.Provider>
 	);

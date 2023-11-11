@@ -1,5 +1,6 @@
 import { useState, createContext } from "react";
 import GamePage from "./components/pages/GamePage.tsx";
+import DifficultyPage from "./components/pages/DifficultyPage.tsx";
 import WinPage from "./components/pages/WinPage.tsx";
 import LosePage from "./components/pages/LosePage.tsx";
 import "./styles/App.scss";
