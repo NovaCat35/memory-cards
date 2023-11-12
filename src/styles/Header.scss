@@ -1,0 +1,47 @@
+.main-title-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+   color: rgb(255, 255, 255);
+	font-family: "Agbalumo", sans-serif;
+	.logo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		#genshin-logo {
+			// filter: $filter-white;
+			margin-top: 10px;
+			width: 200px;
+		}
+		.divide {
+			color: rgb(65, 171, 220);
+			margin-top: 30px;
+			font-family: "Special Elite", serif;
+			font-size: 4rem;
+		}
+		.tcg-logo-container {
+			position: relative;
+			#tcg-logo {
+				width: 95px;
+			}
+			#text-logo {
+				position: absolute;
+				left: -12px;
+				bottom: -10px;
+				width: 120px;
+			}
+			.title {
+				text-align: center;
+				font-size: 1rem;
+			}
+		}
+	}
+	p {
+		background-color: rgba(7, 24, 49, 0.598);
+		padding: 5px;
+		border-radius: 10px;
+		margin: 0;
+		margin-top: 10px;
+	}
+}

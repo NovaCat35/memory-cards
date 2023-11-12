@@ -5,15 +5,13 @@ import { filterImage } from "../../functions/filterImage.ts";
 import Card from "../Card.tsx";
 import Scoreboard from "../Scoreboard.tsx";
 import CardCounter from "../CardCounter.tsx";
+import Title from "../Title.tsx";
 import "../../styles/GamePlateform.scss";
-import GenshinLogo from "../../assets/genshin_impact_logo.svg";
-import TCGLogo from "../../assets/tcg_logo.webp";
-import TextLogo from "../../assets/text_logo.svg";
 
 export interface gameContextType {
 	charList: string[];
 	cardsCounter: number;
-	: React.Dispatch<React.SetStateAction<number>>;
+	setCardsCounter: React.Dispatch<React.SetStateAction<number>>;
 	setCharList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
@@ -37,17 +35,7 @@ export default function GamePage() {
 		<gameContext.Provider value={{ charList, cardsCounter, setCharList, setCardsCounter }}>
 			<div className="main-game-container">
 				<header>
-					<div className="main-title-container">
-						<div className="logo-container">
-							<img id="genshin-logo" src={GenshinLogo} alt="genshin logo" />
-							<div className="divide">X</div>
-							<div className="tcg-logo-container">
-								<img id="tcg-logo" src={TCGLogo} alt="tcg cards logo" />
-								<img id="text-logo" src={TextLogo} alt="text logo" />
-							</div>
-						</div>
-						<p>A fan-made project inspired by the TCG card game</p>
-					</div>
+					<Title />
 					<Scoreboard />
 				</header>
 				<div className="card-container">
