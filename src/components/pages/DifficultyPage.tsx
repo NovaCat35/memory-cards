@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { pageContext } from "../../App";
 import Title from "../Title.tsx";
 import "../../styles/DifficultyPage.scss";
+import paimonSVG from "../../assets/paimon.webp";
 
 interface DifficultyPageProps {
 	setPageActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,6 +19,15 @@ function DifficultyPage({ setPageActive }: DifficultyPageProps) {
 	return (
 		<div className="main-difficulty-page-container">
 			<Title />
+			<div className="description-container">
+				<img className="paimon-svg" src={paimonSVG} alt="paimon svg" />
+				<p>
+          Ad astra abyssosque, here's a brain-teaser quest. <br />
+					The rule is simple: avoid clicking the same card twice. <br />
+          <br />
+					Ready? Here we go!
+				</p>
+			</div>
 			<div className="difficulty-opt-container">
 				<button id="easy" onClick={handleClick}>
 					Easy

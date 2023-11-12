@@ -2,46 +2,101 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-   color: rgb(255, 255, 255);
 	font-family: "Agbalumo", sans-serif;
+	text-shadow: 1px 1px 2px rgb(7, 14, 40);
 	.logo-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 20px;
 		#genshin-logo {
-			// filter: $filter-white;
 			margin-top: 10px;
-			width: 200px;
+			width: 180px;
+			@media screen and (min-width: 700px) {
+				width: 200px;
+			}
 		}
 		.divide {
 			color: rgb(65, 171, 220);
 			margin-top: 30px;
 			font-family: "Special Elite", serif;
-			font-size: 4rem;
+			font-size: 3.5rem;
+			@media screen and (min-width: 700px) {
+				font-size: 4rem;
+			}
 		}
 		.tcg-logo-container {
 			position: relative;
 			#tcg-logo {
-				width: 95px;
+				width: 90px;
+				@media screen and (min-width: 700px) {
+					width: 95px;
+				}
 			}
 			#text-logo {
 				position: absolute;
 				left: -12px;
 				bottom: -10px;
-				width: 120px;
-			}
-			.title {
-				text-align: center;
-				font-size: 1rem;
+				width: 115px;
+				@media screen and (min-width: 700px) {
+					left: -12px;
+					bottom: -10px;
+					width: 120px;
+				}
 			}
 		}
 	}
 	p {
+		display: flex;
+		text-align: center;
+		color: rgb(255, 255, 255);
 		background-color: rgba(7, 24, 49, 0.598);
-		padding: 5px;
+		padding: 5px 6px;
 		border-radius: 10px;
 		margin: 0;
 		margin-top: 10px;
+		@media screen and (min-width: 700px) {
+			padding: 5px 10px;
+		}
+	}
+}
+
+// Making the logo bigger for the difficulty-page
+.main-difficulty-page-container {
+	.logo-container {
+		margin-top: 20px;
+		#genshin-logo {
+			@media screen and (min-width: 700px) {
+				width: 250px;
+			}
+		}
+		.divide {
+			@media screen and (min-width: 700px) {
+				margin-top: 40px;
+				font-size: 5rem;
+			}
+		}
+		.tcg-logo-container {
+			#tcg-logo {
+				@media screen and (min-width: 700px) {
+					width: 100px;
+				}
+			}
+			#text-logo {
+				@media screen and (min-width: 700px) {
+					left: -19px;
+					bottom: -15px;
+					width: 140px;
+				}
+			}
+		}
+		@media screen and (min-width: 700px){
+			gap: 30px;
+		}
+	}
+	p {
+		@media screen and (min-width: 700px) {
+			padding: 5px 15px;
+		}
 	}
 }
