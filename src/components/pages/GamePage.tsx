@@ -1,9 +1,8 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import { pageContext } from "../../App";
-import { v4 as uuidv4 } from "uuid";
-import Card from "../Card.tsx";
 import Scoreboard from "../Scoreboard.tsx";
 import CardCounter from "../CardCounter.tsx";
+import CardListUI from "../../components/CardListUI.tsx";
 import Title from "../Title.tsx";
 import selectCardsAmount from "../../functions/selectCardsAmount.ts";
 import "../../styles/GamePlateform.scss";
@@ -20,14 +19,14 @@ export const gameContext = createContext<gameContextType>({} as gameContextType)
 export default function GamePage() {
 	const [currCharList, setCurrCharList] = useState<string[]>([]);
 	const [cardsCounter, setCardsCounter] = useState<number>(0);
-	const [showNumber, setShowNumber] = useState<number>(0);
+	const [showCardsNumber, setShowCardsNumber] = useState<number>(0);
 	const { charList, selectedLevel } = useContext(pageContext);
 
-	// Select a number of cards base on difficulty (randomized)
+	// Based on the selected difficulty, we choose a set number of (randomized) cards & set a limit to cards being displayed on UI
 	useEffect(() => {
 		const {selectedCards, displayCards} = selectCardsAmount({ charList, selectedLevel })
 		setCurrCharList(selectedCards);
-		setShowNumber(displayCards);
+		setShowCardsNumber(displayCards);
 	}, [charList, selectedLevel]);
 
 	return (
@@ -38,10 +37,7 @@ export default function GamePage() {
 					<Scoreboard />
 				</header>
 				<div className="card-container">
-					{/* Populate the following with a bunch of cards base on data receive from fetchAPI */}
-					{currCharList.slice(0,showNumber).map((char) => (
-						<Card key={uuidv4()} charName={char} />
-					))}
+					<CardListUI currCharList={currCharList} showCardsNumber={showCardsNumber}/>
 				</div>
 				<CardCounter cardsCounter={cardsCounter} totalCards={currCharList.length} />
 			</div>

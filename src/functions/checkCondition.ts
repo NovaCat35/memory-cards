@@ -7,6 +7,7 @@ interface checkScoreConditionProps {
 	setCurrScore: React.Dispatch<React.SetStateAction<number>>;
 }
 
+// This list keeps track of all clicked cards
 let savedClicked: string[] = [];
 
 export default function checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore }: checkScoreConditionProps) {
@@ -33,3 +34,5 @@ function checkWinCondition(cardsLimit: number) {
 	}
 	return "continue";
 }
+
+export {savedClicked};
