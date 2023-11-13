@@ -13,7 +13,7 @@ Game premise is created based on this [React course](https://www.theodinproject.
 ## Challenges
 This project was all about putting together a full game experience while utilizing everything I have learned so far with hooks, contexts, managing components, and using data from external API on React. 
 
-Somewhere along the project, I learned the hard lesson of uploading large files all at once. After several attempts and mishaps with github's LFS, I was finally able to push up a smaller gif file. Lesson learned, stick to atomic commits with file uploads from now on.
+Somewhere along the project, I learned the hard lesson of uploading large files all at once. After several attempts and mishaps with github's LFS, I was finally able to save all my commit history and free up LFS quota by deleting and recreating a new repo after cloning all the old repos info. Lesson learned, stick to atomic commits with file uploads from now on and be careful with LFS.
 
 Planning: 
 MEMORY CARD

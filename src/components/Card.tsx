@@ -20,8 +20,8 @@ function normalizeName(charName: string) {
 }
 
 function Card({ charName }: CardProps) {
-	const { charList, setCharList, setCardsCounter } = useContext<gameContextType>(gameContext);
-	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
+	const { setCardsCounter } = useContext<gameContextType>(gameContext);
+	const { charList, setCharList, setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName]; // Finds the img src from the hashmap in filterImage.ts
 	charName = normalizeName(charName);
 

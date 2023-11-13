@@ -15,7 +15,7 @@
       justify-content: center;
 		p {
          font-family: genshinFont, monospace ,sans-serif;
-			padding: 3px 10px;
+			padding-left: 10px;
 			font-size: .9rem;
 			margin-left: -3px;
 			display: flex;
@@ -26,10 +26,12 @@
 			border-radius: 5px;
 			background: linear-gradient(90deg, rgb(90, 135, 198) 0%, rgb(190, 135, 213) 80%, rgb(179, 138, 219) 100%);
 			color: rgb(255, 255, 255);
-         text-shadow: 1px 1px 3px rgb(36, 26, 114);
+         text-shadow: 1px 1px 2px rgb(36, 26, 114);
 			z-index: 0;
          width: 65%;
 			@media screen and (min-width: 700px) {
+				padding: 10px 10px 10px 15px;
+				font-size: .95rem;
             width: 100%;
 				margin: 30px 0 30px -5px;
 			}

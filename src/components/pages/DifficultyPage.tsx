@@ -22,10 +22,10 @@ function DifficultyPage({ setPageActive }: DifficultyPageProps) {
 			<div className="description-container">
 				<img className="paimon-svg" src={paimonSVG} alt="paimon svg" />
 				<p>
-          Ad astra abyssosque, here's a brain-teaser quest. <br />
+					Ad astra abyssosque! You've been tasked with a special brain-teaser commission.  <br />
 					The rule is simple: avoid clicking the same card twice. <br />
-          <br />
-					Ready? Here we go!
+					<br />
+					Ready? Good luck, Traveler.
 				</p>
 			</div>
 			<div className="difficulty-opt-container">
