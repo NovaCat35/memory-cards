@@ -29,5 +29,8 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 15px;
+		@media screen and (min-width: 700px) {
+			align-items: center;
+		}
 	}
 }

@@ -20,16 +20,17 @@ function normalizeName(charName: string) {
 }
 
 function Card({ charName }: CardProps) {
-	const { setCardsCounter } = useContext<gameContextType>(gameContext);
-	const { charList, setCharList, setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
+	const { currCharList, setCurrCharList, setCardsCounter } = useContext<gameContextType>(gameContext);
+	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName]; // Finds the img src from the hashmap in filterImage.ts
 	charName = normalizeName(charName);
 
 	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
 		const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
-		const cardsLimit = charList.length;
+		console.log(currCharList)
+		const cardsLimit = currCharList.length;
 		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
-		shuffle({ charList, setCharList });
+		setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
 		setPageStatus(pageStatus);
 		setCardsCounter((counter: number) => counter + 1)
 	};

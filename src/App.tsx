@@ -5,6 +5,7 @@ import GamePage from "./components/pages/GamePage.tsx";
 import DifficultyPage from "./components/pages/DifficultyPage.tsx";
 import WinPage from "./components/pages/WinPage.tsx";
 import LosePage from "./components/pages/LosePage.tsx";
+
 import "./styles/App.scss";
 
 export interface pageContextType {
@@ -32,7 +33,7 @@ function App() {
 
 	useEffect(() => {
 		async function fetchData() {
-			const fetchedNameList = await fetchCharacters();
+			const fetchedNameList = await fetchCharacters(); // raw API data contains names without official released img
 			const filteredList = filterImage(fetchedNameList);
 			setCharList(filteredList);
 		}

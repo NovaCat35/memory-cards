@@ -1,4 +1,8 @@
 .card-counter-container {
    margin: 15px;
    font-size: 2rem;
+   @media screen and (min-width: 700px) {
+      margin-top: 20px;
+      margin-bottom: 30px;
+   }
 }
