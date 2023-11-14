@@ -30,6 +30,7 @@ $filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) bright
 		}
 	}
 	button {
+		font-family: genshinFont, monospace, sans-serif;
 		position: relative;
 		display: flex;
 		justify-content: center;
@@ -37,10 +38,10 @@ $filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) bright
 		gap: 10px;
 		color: white;
 		cursor: pointer;
-		padding: 10px 20px 10px 10px;
+		padding: 5px 15px 5px 10px;
 		border-radius: 35px;
 		border: none;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		transition: all 0.5s ease-in-out;
 		p {
 			width: 100%;
@@ -75,6 +76,7 @@ $filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) bright
 			}
 		}
 		@media screen and (min-width: 700px) {
+			font-size: 1.3rem;
 			padding: 10px 20px;
 			margin-top: 30px;
 		}
@@ -82,13 +84,14 @@ $filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) bright
 }
 
 @mixin selectButton() {
+	font-family: genshinFont, monospace, sans-serif;
 	color: white;
 	cursor: pointer;
 	padding: 15px 30px;
 	margin-top: 30px;
 	border-radius: 10px;
 	border: none;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	transition: all 0.5s ease-in-out;
 	&:hover {
 		transform: translateY(-5px);

@@ -6,7 +6,8 @@ import GamePage from "./components/pages/GamePage.tsx";
 import DifficultyPage from "./components/pages/DifficultyPage.tsx";
 import WinPage from "./components/pages/WinPage.tsx";
 import LosePage from "./components/pages/LosePage.tsx";
-
+import SoundBtn from "./components/SoundBtn.tsx";
+import { SoundProvider } from "./contexts/SoundContext.tsx";
 import "./styles/App.scss";
 
 export interface pageContextType {
@@ -44,9 +45,14 @@ function App() {
 	}, []);
 
 	return (
-		<pageContext.Provider value={{ charList, setCharList, setDifficultyActive, setWinActive, setLoseActive, currScore, bestScore, setCurrScore, setBestScore, selectedLevel, setSelectedLevel }}>
-			<>{LoadingPageActive ? <LoadingPage setPageActive={setLoadingPageActive} /> : difficultyActive ? <DifficultyPage /> : winActive ? <WinPage /> : loseActive ? <LosePage /> : <GamePage />} </>
-		</pageContext.Provider>
+		<SoundProvider>
+			<pageContext.Provider value={{ charList, setCharList, setDifficultyActive, setWinActive, setLoseActive, currScore, bestScore, setCurrScore, setBestScore, selectedLevel, setSelectedLevel }}>
+				<>
+					{LoadingPageActive ? <LoadingPage setPageActive={setLoadingPageActive} /> : difficultyActive ? <DifficultyPage /> : winActive ? <WinPage /> : loseActive ? <LosePage /> : <GamePage />}
+					<SoundBtn />
+				</>
+			</pageContext.Provider>
+		</SoundProvider>
 	);
 }
 

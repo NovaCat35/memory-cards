@@ -17,6 +17,10 @@ function LosePage() {
 	// 	reloadGif(); // Reload the GIF when the component mounts
 	// }, []);
 
+	// useEffect(() => {
+
+	// },[])
+
 	return (
 		<div className="main-lose-container">
 			<video autoPlay muted loop playsInline id="backgroundVideo">

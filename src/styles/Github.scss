@@ -1,0 +1,21 @@
+footer {
+	@include centerElements;
+	gap: 10px;
+	margin-bottom: 10px;
+	width: 100vw;
+	height: 40px;
+	z-index: 1;
+	color: rgb(236, 218, 175);
+	font-family: $footer-font;
+	a{
+		height: 27px;
+		img {
+			filter: $filter-icon;
+			width: 30px;
+			transition: all 0.5s ease-in-out;
+			&:hover {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}

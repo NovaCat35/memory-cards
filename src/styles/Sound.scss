@@ -1,0 +1,31 @@
+$filter-darkish-blue: invert(13%) sepia(45%) saturate(552%) hue-rotate(190deg) brightness(96%) contrast(88%);
+.sound-btn-container {
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+	button {
+		background-color: rgb(220, 230, 245);
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		border: none;
+		height: 40px;
+		width: 40px;
+		img {
+			filter: $filter-darkish-blue;
+			width: 100%;
+		}
+      @media screen and (min-width: 700px) {
+         height: 45px;
+         width: 45px;
+      }
+	}
+	@media screen and (min-width: 700px) {
+      top: auto;
+      right: auto;
+		left: 30px;
+		bottom: 30px;
+	}
+}
