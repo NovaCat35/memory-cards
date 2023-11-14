@@ -2,8 +2,7 @@
 @import "./Fonts.scss";
 
 .main-difficulty-page-container {
-	background-size: cover;
-	background-image: url("../assets/game_backdrop.gif");
+	@include backgroundVideo();
 	display: flex;
 	flex-direction: column;
 	align-items: center;

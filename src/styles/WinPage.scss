@@ -2,19 +2,7 @@
 
 .main-win-container {
    @include endPage();
-   #backgroundVideo {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 100%;
-		height: auto;
-		min-width: 100%;
-		min-height: 100%;
-		object-fit: cover;
-      z-index: -1;
-   }
-   @include endPage();
+   @include  backgroundVideo();
    h1 {
       margin-top: 30px;
    }

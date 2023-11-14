@@ -6,6 +6,7 @@ import CardListUI from "../../components/CardListUI.tsx";
 import Title from "../Title.tsx";
 import selectCardsAmount from "../../functions/selectCardsAmount.ts";
 import "../../styles/GamePlateform.scss";
+import backgroundVideo from "../../assets/game_backdrop.mp4";
 
 export interface gameContextType {
 	currCharList: string[];
@@ -24,7 +25,7 @@ export default function GamePage() {
 
 	// Based on the selected difficulty, we choose a set number of (randomized) cards & set a limit to cards being displayed on UI
 	useEffect(() => {
-		const {selectedCards, displayCards} = selectCardsAmount({ charList, selectedLevel })
+		const { selectedCards, displayCards } = selectCardsAmount({ charList, selectedLevel });
 		setCurrCharList(selectedCards);
 		setShowCardsNumber(displayCards);
 	}, [charList, selectedLevel]);
@@ -32,12 +33,15 @@ export default function GamePage() {
 	return (
 		<gameContext.Provider value={{ currCharList, setCurrCharList, cardsCounter, setCardsCounter }}>
 			<div className="main-game-container">
+				<video autoPlay muted loop playsInline id="backgroundVideo">
+					<source src={backgroundVideo} type="video/mp4" />
+				</video>
 				<header>
 					<Title />
 					<Scoreboard />
 				</header>
 				<div className="card-container">
-					<CardListUI currCharList={currCharList} showCardsNumber={showCardsNumber}/>
+					<CardListUI currCharList={currCharList} showCardsNumber={showCardsNumber} />
 				</div>
 				<CardCounter cardsCounter={cardsCounter} totalCards={currCharList.length} />
 			</div>
