@@ -1,8 +1,28 @@
 @import "./mixins.scss";
 
-.main-lose-container {
+.main-win-container {
    @include endPage();
+   #backgroundVideo {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		height: auto;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+      z-index: -1;
+   }
+   @include endPage();
+   h1 {
+      margin-top: 30px;
+   }
+   p {
+      color: rgb(71, 169, 235);
+      text-shadow: 1px 1px 3px rgb(15, 42, 99);
+   }
    button {
-      background: linear-gradient(90deg, rgb(95, 138, 209) 0%, rgb(101, 164, 223) 92%, rgb(69, 166, 235) 100%);
+      background: linear-gradient(90deg, rgb(64, 151, 222) 0%, rgb(38, 132, 219) 60%, rgb(9, 94, 173) 100%);
    }
 }
