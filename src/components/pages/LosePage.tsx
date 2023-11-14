@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { pageContextType, pageContext } from "../../App";
 // import defeatGif from "../../assets/defeat.gif";
 import "../../styles/DefeatPage.scss";
