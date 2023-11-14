@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { pageContext } from "../../App";
 import loadingVideo from "../../assets/klee-trip-loading.mp4";
 import "../../styles/LoadingPage.scss";
 
 type LoadingPageProps = {
-	setDifficultyActive: React.Dispatch<React.SetStateAction<boolean>>;
 	setPageActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function LoadingPage({ setPageActive, setDifficultyActive }: LoadingPageProps) {
+function LoadingPage({ setPageActive }: LoadingPageProps) {
 	const [loadingText, setLoadingText] = useState("Loading");
+	const { setDifficultyActive } = useContext(pageContext);
 
 	/**
 	 * While I understand a loader should be set to start and finish after fetching API, this decision to keep a static loading time is for experimentation only.
@@ -24,7 +25,7 @@ function LoadingPage({ setPageActive, setDifficultyActive }: LoadingPageProps) {
 	
 	useEffect(() => {
 		const textIntervalId = setInterval(() => {
-			setLoadingText((prevText) => (prevText.length < 11 ? prevText + "." : "Loading"));
+			setLoadingText((prevText) => (prevText.length < 10 ? prevText + "." : "Loading"));
 		}, 500);
 
 		return () => clearInterval(textIntervalId); // Cleanup the interval on unmount

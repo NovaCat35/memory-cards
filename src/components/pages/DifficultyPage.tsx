@@ -5,15 +5,11 @@ import "../../styles/DifficultyPage.scss";
 import paimonSVG from "../../assets/paimon.webp";
 import backgroundVideo from "../../assets/game_backdrop.mp4";
 
-interface DifficultyPageProps {
-	setPageActive: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-function DifficultyPage({ setPageActive }: DifficultyPageProps) {
-	const { setSelectedLevel } = useContext(pageContext);
+function DifficultyPage() {
+	const { setSelectedLevel, setDifficultyActive } = useContext(pageContext);
 	const handleClick = (e: React.MouseEvent) => {
 		const levelSelected = e.currentTarget.getAttribute("id") || "";
-		setPageActive(false);
+		setDifficultyActive(false);
 		setSelectedLevel(levelSelected);
 	};
 

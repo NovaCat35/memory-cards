@@ -12,5 +12,10 @@
    }
    button {
       background: linear-gradient(90deg, rgb(64, 151, 222) 0%, rgb(38, 132, 219) 60%, rgb(9, 94, 173) 100%);
+      @media screen and (min-width: 700px) {
+         &:last-child {
+            background: linear-gradient(90deg, rgb(9, 94, 173) 0%, rgb(38, 132, 219) 40%, rgb(64, 151, 222) 100%);
+         }
+      }
    }
 }

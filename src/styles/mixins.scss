@@ -1,58 +1,114 @@
+$filter-blue: invert(55%) sepia(94%) saturate(1004%) hue-rotate(176deg) brightness(91%) contrast(97%);
+$filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) brightness(98%) contrast(92%);
+
 @mixin endPage() {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-   color: white;
-   font-family: genshinFont, monospace ,sans-serif;
-   h1 {
-      font-size: 2.5rem;
-      padding: 10px;
-   }
-   p{
-      margin: 0 0 10px;
-   }
-   button {
-      color: white;
-      cursor: pointer;
-      padding: 15px 30px;
-      margin-top: 30px;
-      border-radius: 10px;
-      border: none;
-      font-size: 1.5rem;
-      position: absolute;
-      bottom: 100px;
-   }
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: white;
+	font-family: genshinFont, monospace, sans-serif;
+	h1 {
+		text-align: center;
+		font-size: 2.5rem;
+		padding: 10px;
+	}
+	p {
+		text-align: center;
+		margin: 0 20px 10px;
+	}
+	.btn-container {
+		position: absolute;
+		bottom: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		@media screen and (min-width: 700px) {
+			bottom: 60px;
+			flex-direction: row;
+			gap: 30px;
+		}
+	}
+	button {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		color: white;
+		cursor: pointer;
+		padding: 10px 20px 10px 10px;
+		border-radius: 35px;
+		border: none;
+		font-size: 1.5rem;
+		transition: all 0.5s ease-in-out;
+		p {
+			width: 100%;
+			margin: 0;
+			color: white;
+		}
+		&:hover {
+			transform: translateY(-3px);
+		}
+		&:active {
+			transform: translateY(3px);
+		}
+		.img-wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 40px;
+			min-width: 40px;
+			border-radius: 50%;
+			background-color: rgb(23, 36, 48);
+			img {
+				&.return {
+					height: 30px;
+					width: 30px;
+					filter: $filter-yellow;
+				}
+				&.cancel {
+					height: 45px;
+					width: 45px;
+					filter: $filter-blue;
+				}
+			}
+		}
+		@media screen and (min-width: 700px) {
+			padding: 10px 20px;
+			margin-top: 30px;
+		}
+	}
 }
 
 @mixin selectButton() {
-   color: white;
-   cursor: pointer;
-   padding: 15px 30px;
-   margin-top: 30px;
-   border-radius: 10px;
-   border: none;
-   font-size: 1.5rem;
-   transition: all .5s ease-in-out;
-   &:hover {
-      transform: translateY(-5px);
-   }
-   &:active {
-      transform: translateY(5px);
-   }
+	color: white;
+	cursor: pointer;
+	padding: 15px 30px;
+	margin-top: 30px;
+	border-radius: 10px;
+	border: none;
+	font-size: 1.5rem;
+	transition: all 0.5s ease-in-out;
+	&:hover {
+		transform: translateY(-5px);
+	}
+	&:active {
+		transform: translateY(5px);
+	}
 }
 
 @mixin backgroundVideo() {
-   #backgroundVideo {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 110%;
-      height: auto;
-      min-width: 110%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-   }
+	#backgroundVideo {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 110%;
+		height: auto;
+		min-width: 110%;
+		min-height: 100%;
+		object-fit: cover;
+		z-index: -1;
+	}
 }

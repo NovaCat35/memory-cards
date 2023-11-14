@@ -17,6 +17,7 @@ export interface pageContextType {
 	setCharList: React.Dispatch<React.SetStateAction<string[]>>;
 	setWinActive: React.Dispatch<React.SetStateAction<boolean>>;
 	setLoseActive: React.Dispatch<React.SetStateAction<boolean>>;
+	setDifficultyActive: React.Dispatch<React.SetStateAction<boolean>>;
 	setCurrScore: React.Dispatch<React.SetStateAction<number>>;
 	setBestScore: React.Dispatch<React.SetStateAction<number>>;
 	setSelectedLevel: React.Dispatch<React.SetStateAction<string>>;
@@ -43,8 +44,8 @@ function App() {
 	}, []);
 
 	return (
-		<pageContext.Provider value={{ charList, setCharList, setWinActive, setLoseActive, currScore, bestScore, setCurrScore, setBestScore, selectedLevel, setSelectedLevel }}>
-			<>{LoadingPageActive ? <LoadingPage setPageActive={setLoadingPageActive} setDifficultyActive={setDifficultyActive}/> : difficultyActive ? <DifficultyPage setPageActive={setDifficultyActive} /> : winActive ? <WinPage /> : loseActive ? <LosePage /> : <GamePage />} </>
+		<pageContext.Provider value={{ charList, setCharList, setDifficultyActive, setWinActive, setLoseActive, currScore, bestScore, setCurrScore, setBestScore, selectedLevel, setSelectedLevel }}>
+			<>{LoadingPageActive ? <LoadingPage setPageActive={setLoadingPageActive} /> : difficultyActive ? <DifficultyPage /> : winActive ? <WinPage /> : loseActive ? <LosePage /> : <GamePage />} </>
 		</pageContext.Provider>
 	);
 }
