@@ -1,7 +1,7 @@
-# Memory Card [WORK IN PROGRESS]
+# Memory Card
 A fun fan-project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. As some wise but annoying puzzle ads out there once said: exercise your brain cells, and brace yourself for a wild ride. 🧩
 
-Link: in progress...
+Link: https://56e2992a.memory-cards.pages.dev [IN PROGRESS, attempting optimization for videos]
 
 > In progress: 
 <img width="856" alt="Screenshot 2023-11-13 at 9 11 02 PM" src="https://github.com/NovaCat35/weather-app/assets/54908064/fe01b97d-2855-4e98-9f4a-adf5821c0019">
@@ -13,7 +13,7 @@ Game premise is created based on this [React course](https://www.theodinproject.
 ## Features
 - Loading screen 
 - Level Difficulty Selector
-- 3D Card styling
+- 3D Card styling [IN PROGRESS]
 - Sound Option
 
 ## Challenges
