@@ -24,6 +24,7 @@ function LosePage() {
 	// },[])
 	const { currSoundActive, playMainTrack, playDefeatTrack, stopDefeatTrack, stopMainTrack } = useSoundContext();
 
+	// We want to control the music type when we switch end pages, that's why we need the useEffect
 	useEffect(() => {
 		if (currSoundActive) {
 			stopMainTrack();

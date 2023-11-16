@@ -14,7 +14,7 @@ function Title() {
 					<img id="text-logo" src={TextLogo} alt="text logo" />
 				</div>
 			</div>
-			<p>A fan-made project inspired by the TCG card game.</p>
+			<p>A fan-made project inspired by Genshin's TCG.</p>
 		</div>
 	);
 }

@@ -11,27 +11,29 @@
 	.description-container {
 		margin-top: 30px;
 		display: flex;
-      justify-content: center;
-		p {
-         font-family: genshinFont, monospace ,sans-serif;
-			padding-left: 10px;
-			font-size: .9rem;
-			margin-left: -3px;
+		justify-content: center;
+		div {
+			font-family: genshinFont, monospace, sans-serif;
+			padding: 10px;
+			font-size: 0.9rem;
 			display: flex;
-         justify-content: center;
+			justify-content: center;
 			align-items: center;
 			border: 3px solid rgb(217, 221, 246);
 			border-left: none;
 			border-radius: 5px;
 			background: linear-gradient(90deg, rgb(90, 135, 198) 0%, rgb(190, 135, 213) 80%, rgb(179, 138, 219) 100%);
 			color: rgb(255, 255, 255);
-         text-shadow: 1px 1px 2px rgb(36, 26, 114);
+			text-shadow: 1px 1px 2px rgb(36, 26, 114);
 			z-index: 0;
-         width: 65%;
+			overflow: hidden;
+			animation: 1.3s ease-out 0s scrollInFromLeft forwards;
+			p {
+				opacity: 0;
+				animation: 1.5s ease-out 1.3s fadeIn forwards;
+			}
 			@media screen and (min-width: 700px) {
-				padding: 10px 10px 10px 15px;
-				font-size: .95rem;
-            // width: 75%;
+				font-size: 0.95rem;
 				margin: 30px 0 30px -5px;
 			}
 		}
@@ -49,12 +51,54 @@
 		flex-direction: column;
 		button {
 			@include selectButton();
+			opacity: 0;
+			transform: translateY(100%); /* Start from below */
 			background: linear-gradient(90deg, rgb(95, 138, 209) 0%, rgb(101, 164, 223) 92%, rgb(69, 166, 235) 100%);
+			&:first-child {
+				animation: 2s ease-out 1s 1 slideInFromBottom forwards;
+			}
+			&:nth-child(2) {
+				animation: 2s ease-out 1.3s 1 slideInFromBottom forwards;
+			}
+			&:last-child {
+				animation: 2s ease-out 1.6s 1 slideInFromBottom forwards;
+			}
 		}
 		@media screen and (min-width: 700px) {
-         margin-top: 15px;
+			margin-top: 15px;
 			flex-direction: row;
 			gap: 30px;
 		}
+	}
+}
+
+@keyframes slideInFromBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(100%); /* Start from below */
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0); /* Move to the original position */
+	}
+}
+
+@keyframes scrollInFromLeft {
+	0% {
+		white-space: nowrap; /* Prevent line breaks during animation */
+		width: 0;
+	}
+	100% {
+		white-space: wrap; /* Reform line breaks */
+		width: 65%;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }

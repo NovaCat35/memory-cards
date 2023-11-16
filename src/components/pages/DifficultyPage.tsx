@@ -21,12 +21,14 @@ function DifficultyPage() {
 			<Title />
 			<div className="description-container">
 				<img className="paimon-svg" src={paimonSVG} alt="paimon svg" />
-				<p>
-					Ad astra abyssosque! You've been tasked with a special brain-teaser commission. <br />
-					The rule is simple: avoid clicking the same card twice. <br />
-					<br />
-					Ready? Good luck, Traveler.
-				</p>
+				<div>
+					<p>
+						Ad astra abyssosque! You've been tasked with a special brain-teaser commission. <br />
+						The rule is simple: avoid clicking the same card twice. <br />
+						<br />
+						Ready? Good luck, Traveler.
+					</p>
+				</div>
 			</div>
 			<div className="difficulty-opt-container">
 				<button id="easy" onClick={handleClick}>

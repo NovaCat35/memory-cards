@@ -7,6 +7,7 @@ import { useSoundContext } from "../../contexts/SoundContext";
 function WinPage() {
 	const { currSoundActive, playMainTrack, playWinTrack, stopWinTrack, stopMainTrack } = useSoundContext();
 
+	// We want to control the music type when we switch end pages, that's why we need the useEffect
 	useEffect(() => {
 		if (currSoundActive) {
 			stopMainTrack();
@@ -24,7 +25,7 @@ function WinPage() {
 			<video autoPlay muted loop playsInline id="backgroundVideo">
 				<source src={backgroundVideo} type="video/mp4" />
 			</video>
-			<EndButtons activeType='win'/>
+			<EndButtons activeType="win" />
 		</div>
 	);
 }
