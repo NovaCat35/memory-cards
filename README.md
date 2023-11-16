@@ -30,7 +30,7 @@ Somewhere along the project, a key lesson learned involved managing large file u
 ## Sources and References 🖌️
 - API: https://genshin.dev/
 - https://moewalls.com/anime/raiden-shogun-meditating-genshin-impact-live-wallpaper/
-- https://wallpaperwaifu.com/pixel-art klee-walking-pixel-genshin-impact-live-wallpaper/
+- https://wallpaperwaifu.com/pixel-art/klee-walking-pixel-genshin-impact-live-wallpaper/
 - https://tenor.com/view/genshin-impact-gif-24086945
 > Tools
 - https://cssgradient.io/
