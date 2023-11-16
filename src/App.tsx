@@ -15,6 +15,8 @@ export interface pageContextType {
 	currScore: number;
 	bestScore: number;
 	selectedLevel: string;
+	winActive: boolean;
+	loseActive: boolean;
 	setCharList: React.Dispatch<React.SetStateAction<string[]>>;
 	setWinActive: React.Dispatch<React.SetStateAction<boolean>>;
 	setLoseActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -46,7 +48,7 @@ function App() {
 
 	return (
 		<SoundProvider>
-			<pageContext.Provider value={{ charList, setCharList, setDifficultyActive, setWinActive, setLoseActive, currScore, bestScore, setCurrScore, setBestScore, selectedLevel, setSelectedLevel }}>
+			<pageContext.Provider value={{ charList, setCharList, winActive, loseActive, setDifficultyActive, setWinActive, setLoseActive, currScore, bestScore, setCurrScore, setBestScore, selectedLevel, setSelectedLevel }}>
 				<>
 					{LoadingPageActive ? <LoadingPage setPageActive={setLoadingPageActive} /> : difficultyActive ? <DifficultyPage /> : winActive ? <WinPage /> : loseActive ? <LosePage /> : <GamePage />}
 					<SoundBtn />

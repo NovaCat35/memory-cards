@@ -23,7 +23,6 @@ function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
 	let shownCharList = newCurrCharList.slice(0, showCardsNumber);
    shownCharList = shuffle({charList: shownCharList})
 
-
 	return (
 		<>
 			{shownCharList.map((char) => (

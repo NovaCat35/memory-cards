@@ -1,7 +1,9 @@
-// import defeatGif from "../../assets/defeat.gif";
+import { useEffect } from "react";
 import "../../styles/DefeatPage.scss";
 import backgroundVideo from "../../assets/raiden-shogun-meditating.mp4";
 import EndButtons from "../EndButtons.tsx";
+import { useSoundContext } from "../../contexts/SoundContext";
+// import defeatGif from "../../assets/defeat.gif";
 
 function LosePage() {
 	// const [gifSrc, setGifSrc] = useState(defeatGif);
@@ -20,6 +22,17 @@ function LosePage() {
 	// useEffect(() => {
 
 	// },[])
+	const { currSoundActive, playMainTrack, playDefeatTrack, stopDefeatTrack, stopMainTrack } = useSoundContext();
+
+	useEffect(() => {
+		if (currSoundActive) {
+			stopMainTrack();
+			playDefeatTrack();
+		}
+		return () => {
+			stopDefeatTrack();
+		};
+	}, [currSoundActive, playDefeatTrack, playMainTrack, stopDefeatTrack, stopMainTrack]);
 
 	return (
 		<div className="main-lose-container">
@@ -29,7 +42,7 @@ function LosePage() {
 			<h1>Challenge Failed</h1>
 			<p>Looks like you're not going to make it out of Tenshukaku alive today.</p>
 			{/* <img src={gifSrc} alt="victory gif" /> */}
-			<EndButtons activeType='lose'/>
+			<EndButtons activeType="lose" />
 		</div>
 	);
 }

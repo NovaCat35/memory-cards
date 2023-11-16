@@ -1,8 +1,22 @@
+import { useEffect } from "react";
 import "../../styles/WinPage.scss";
 import backgroundVideo from "../../assets/furina-running.mp4";
 import EndButtons from "../EndButtons.tsx";
+import { useSoundContext } from "../../contexts/SoundContext";
 
 function WinPage() {
+	const { currSoundActive, playMainTrack, playWinTrack, stopWinTrack, stopMainTrack } = useSoundContext();
+
+	useEffect(() => {
+		if (currSoundActive) {
+			stopMainTrack();
+			playWinTrack();
+		}
+		return () => {
+			stopWinTrack();
+		};
+	}, [currSoundActive, playWinTrack, playMainTrack, stopMainTrack, stopWinTrack]);
+
 	return (
 		<div className="main-win-container">
 			<h1>You Did It, Bravo!</h1>

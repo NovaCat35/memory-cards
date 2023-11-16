@@ -1,32 +1,42 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { pageContext } from "../App";
 import VolumeBtnOn from "../assets/volume_on.svg";
 import VolumeBtnOff from "../assets/volume_off.svg";
 import "../styles/Sound.scss";
 import { useSoundContext } from "../contexts/SoundContext";
 
 function SoundBtn() {
-	const [sound, setSound] = useState<boolean>(false);
-	const { playMainTrack, stopMainTrack } = useSoundContext();
+	const { currSoundActive, setCurrSoundActive, playMainTrack, playWinTrack, playDefeatTrack, stopMainTrack, stopDefeatTrack, stopWinTrack } = useSoundContext();
+	const { winActive, loseActive } = useContext(pageContext);
 
-	// useEffect triggers at end of sound and increments soundIndex
+	// useEffect triggers to play the next sound in the main track for every increment in the soundFiles
 	useEffect(() => {
 		const handleSoundEnd = () => {
-			playMainTrack(); // Play the next sound
+			if (currSoundActive && !winActive && !loseActive) {
+				playMainTrack();
+			}
 		};
 		handleSoundEnd();
 		return () => stopMainTrack();
-	}, [playMainTrack]);
+	}, [currSoundActive, loseActive, playMainTrack, stopMainTrack, winActive]);
 
 	// Turning sound on or off & show appropriate img icon
 	const toggleSound = () => {
-		sound ? stopMainTrack() : playMainTrack();
-		setSound((prevSound) => !prevSound);
+		if (currSoundActive) {
+			stopMainTrack();
+			stopDefeatTrack();
+			stopWinTrack();
+		} else {
+			const selectedTrack = winActive ? playWinTrack : loseActive ? playDefeatTrack : playMainTrack;
+			selectedTrack();
+		}
+		setCurrSoundActive((prevSound) => !prevSound);
 	};
 
 	return (
 		<div className="sound-btn-container">
 			<button onClick={toggleSound}>
-				<img src={sound ? VolumeBtnOn : VolumeBtnOff} alt="volume button" />
+				<img src={currSoundActive ? VolumeBtnOn : VolumeBtnOff} alt="volume button" />
 			</button>
 		</div>
 	);

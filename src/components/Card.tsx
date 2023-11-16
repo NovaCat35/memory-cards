@@ -31,7 +31,7 @@ function Card({ charName }: CardProps) {
 		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
 		setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
 		setPageStatus(pageStatus);
-		setCardsCounter((counter: number) => counter + 1)
+		setCardsCounter((counter: number) => counter + 1);
 	};
 
 	const setPageStatus = (pageStatus: string) => {

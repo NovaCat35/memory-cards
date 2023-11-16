@@ -21,13 +21,13 @@ This project was a deep dive into React, exploring hooks, contexts, and API inte
 
 Somewhere along the project, a key lesson learned involved managing large file uploads. After grappling with GitHub's LFS, I ultimately saved commit history and cleared LFS quota by creating a new repo. This is a story of a cautionary tale of painstaking hours spent trying to make the game backdrop work. Lesson Takeaway: Opt for atomic commits with file uploads and handle LFS cautiously.
 
-## React Libraries:
+## React Libraries 
 ```
    npm install uuidv4 
    npm install use-sound
 ```
 
-## Sources and References:
+## Sources and References 🖌️
 - API: https://genshin.dev/
 - https://moewalls.com/anime/raiden-shogun-meditating-genshin-impact-live-wallpaper/
 - https://wallpaperwaifu.com/pixel-art klee-walking-pixel-genshin-impact-live-wallpaper/
