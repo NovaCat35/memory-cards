@@ -12,10 +12,11 @@
 		margin-top: 30px;
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		div {
 			font-family: genshinFont, monospace, sans-serif;
 			padding: 10px;
-			font-size: 0.9rem;
+			font-size: 0.85rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -26,7 +27,8 @@
 			color: rgb(255, 255, 255);
 			text-shadow: 1px 1px 2px rgb(36, 26, 114);
 			z-index: 0;
-			overflow: hidden;
+			overflow: auto;
+			height: 170px;
 			animation: 1.3s ease-out 0s scrollInFromLeft forwards;
 			p {
 				opacity: 0;

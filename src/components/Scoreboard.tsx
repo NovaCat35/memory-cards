@@ -7,8 +7,8 @@ function Scoreboard() {
 
   return (
     <div className="main-scoreboard">
-      <div className="current-score"><h2>Score</h2><div className="score">{currScore}</div></div>
-      <div className="best-score"><h2>Best Score</h2>{bestScore}</div>
+      <div className="current-score"><h2>Score</h2><p className="score">{currScore}</p></div>
+      <div className="best-score"><h2>Best Score</h2><p className="score">{bestScore}</p></div>
     </div>
   )
 }

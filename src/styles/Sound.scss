@@ -1,6 +1,6 @@
 $filter-darkish-blue: invert(13%) sepia(45%) saturate(552%) hue-rotate(190deg) brightness(96%) contrast(88%);
 .sound-btn-container {
-	position: absolute;
+	position: fixed;
 	left: 15px;
 	bottom: 15px;
 	button {

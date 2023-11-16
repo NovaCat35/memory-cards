@@ -91,13 +91,16 @@ $filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) bright
 	margin-top: 30px;
 	border-radius: 10px;
 	border: none;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 	transition: all 0.5s ease-in-out;
 	&:hover {
 		transform: translateY(-5px);
 	}
 	&:active {
 		transform: translateY(5px);
+	}
+	@media screen and (min-width:700px) {
+		font-size: 1.3rem;
 	}
 }
 
