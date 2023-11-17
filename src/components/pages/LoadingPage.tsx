@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { pageContext } from "../../App";
 import loadingVideo from "../../assets/klee-trip-loading.mp4";
-import kleePoster from "../../assets/klee_walking_poster.jpeg";
+import kleePoster from "../../assets/klee_walking.jpg";
 import "../../styles/LoadingPage.scss";
 
 type LoadingPageProps = {

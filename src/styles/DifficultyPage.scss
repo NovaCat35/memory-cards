@@ -16,7 +16,6 @@
 		div {
 			font-family: genshinFont, monospace, sans-serif;
 			padding: 10px;
-			font-size: 0.85rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -27,10 +26,10 @@
 			color: rgb(255, 255, 255);
 			text-shadow: 1px 1px 2px rgb(36, 26, 114);
 			z-index: 0;
-			overflow: auto;
 			height: 170px;
 			animation: 1.3s ease-out 0s scrollInFromLeft forwards;
 			p {
+				font-size: 0.85rem;
 				opacity: 0;
 				animation: 1.5s ease-out 1.3s fadeIn forwards;
 			}
@@ -40,7 +39,7 @@
 			}
 		}
 		img {
-			height: 205.71;
+			height: 205.71px;
 			width: 120px;
 			z-index: 1;
 			@media screen and (min-width: 700px) {
@@ -89,10 +88,12 @@
 
 @keyframes scrollInFromLeft {
 	0% {
+		overflow: hidden;
 		white-space: nowrap; /* Prevent line breaks during animation */
 		width: 0;
 	}
 	100% {
+		overflow: auto;
 		white-space: wrap; /* Reform line breaks */
 		width: 65%;
 	}

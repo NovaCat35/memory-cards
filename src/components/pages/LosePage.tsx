@@ -3,7 +3,7 @@ import "../../styles/DefeatPage.scss";
 import EndButtons from "../EndButtons.tsx";
 import { useSoundContext } from "../../contexts/SoundContext";
 import backgroundVideo from "../../assets/raiden-shogun-meditating.mp4";
-import backgroundPoster from "../../assets/plane_of_euthymia.webp";
+import backgroundPoster from "../../assets/raiden_shogun_poster.jpg";
 // import defeatGif from "../../assets/defeat.gif";
 
 function LosePage() {

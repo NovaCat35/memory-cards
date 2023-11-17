@@ -1,27 +1,26 @@
 # Memory Card
 A fun fan-project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. As some wise but annoying puzzle ads out there once said: exercise your brain cells, and brace yourself for a wild ride. 🧩
 
-Link: https://56e2992a.memory-cards.pages.dev [IN PROGRESS, attempting optimization for videos]
+Link: https://56e2992a.memory-cards.pages.dev [Work in progress: 3D cards & file optimization]
 
-> In progress: 
-<img width="856" alt="Screenshot 2023-11-13 at 9 11 02 PM" src="https://github.com/NovaCat35/weather-app/assets/54908064/fe01b97d-2855-4e98-9f4a-adf5821c0019">
+<img width="982" alt="Screenshot 2023-11-17 at 1 27 10 PM" src="https://github.com/NovaCat35/weather-app/assets/54908064/58fed792-1756-4c45-b8fe-5ca14901b49e">
 
 ## Disclaimers ⚠️
 This is a fan-made project base on the game Genshin Impact. This project features materials protected by the Fair Use guidelines of Section 107 of the Copyright Act. All rights reserved to the copyright owners. <br>
 Game premise is created based on this [React course](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) from The Odin Project. Much appreciation to this great source.
 
-## Features
+## Features 🎯
 - Loading screen 
 - Level Difficulty Selector
 - 3D Card styling [IN PROGRESS]
 - Sound Option
 
-## Challenges
-This project was a deep dive into React, exploring hooks, contexts, and API integration for a complete game experience.
+## Challenges 😖
+Creator's note: this project was a deep dive into React, exploring hooks, contexts, and API integration for a complete game experience.
 
-Somewhere along the project, a key lesson learned involved managing large file uploads. After grappling with GitHub's LFS, I ultimately saved commit history and cleared LFS quota by creating a new repo. This is a story of a cautionary tale of painstaking hours spent trying to make the game backdrop work. Lesson Takeaway: Opt for atomic commits with file uploads and handle LFS cautiously.
+Somewhere along the project, a key lesson learned involved managing large file uploads. After grappling with GitHub's LFS and upload issues with large videos and images, I ultimately had to re-optimize the way my file is set up, trim and rework larger uploads. While this is a cautionary tale of painstaking hours spent trying to make the game flow better I learned a lot about handling uploads and optimization for game flow.
 
-Another key takeaway is understanding rerendering, mount, and unmounting within child contexts and crucial planning for moving states up. For example, there was some issue each individual card state never being set properly since the card component is constantly remounted when clicked on. Eventually these issues were resolved with key observations in moving these states up. 
+Another key takeaway is understanding rerendering, mount, and unmounting within child contexts and moving states up. For example, there was some issue each individual card state never being set properly since the card component is constantly remounted when clicked on. These problems helped me better understand using effects and contexts for the future.
 
 ## Libraries 📚
 ```

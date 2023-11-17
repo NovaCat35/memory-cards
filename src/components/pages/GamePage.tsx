@@ -45,7 +45,7 @@ export default function GamePage() {
 		setTimeout(() => {
 			setIsFlipped(false);
 			setIsClicked(false);
-		}, 1000);
+		}, 500);
 	};
 
 	/**
