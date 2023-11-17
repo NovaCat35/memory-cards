@@ -1,6 +1,6 @@
 import Card from "./Card.tsx";
 import shuffle from "../functions/shuffle";
-import { savedClicked } from "../functions/updateScore.ts";
+import { savedClicked } from "../functions/checkScoreCondition.ts";
 import { v4 as uuidv4 } from "uuid";
 // import { useEffect } from "react";
 

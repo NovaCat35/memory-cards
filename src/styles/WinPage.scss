@@ -4,11 +4,17 @@
    @include endPage();
    @include  backgroundVideo();
    h1 {
+      color: rgb(15, 124, 233);
+      text-shadow: 
+      2px 2px 20px rgb(129, 190, 236),
+      -2px -2px 20px rgb(129, 190, 236),
+      2px -2px 20px rgb(129, 190, 236),
+      -2px 2px 20px rgb(129, 190, 236);
       margin-top: 30px;
    }
    p {
-      color: rgb(71, 169, 235);
-      text-shadow: 1px 1px 3px rgb(15, 42, 99);
+      color: white;
+      text-shadow: 1px 1px 5px rgb(31, 77, 177);
    }
    button {
       background: linear-gradient(90deg, rgb(64, 151, 222) 0%, rgb(38, 132, 219) 60%, rgb(9, 94, 173) 100%);

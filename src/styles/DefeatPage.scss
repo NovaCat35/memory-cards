@@ -5,9 +5,15 @@
 	@include endPage();
 	h1 {
 		margin-top: 50px;
+		color: rgb(238, 29, 29);
+		text-shadow: 
+		2px 2px 20px rgb(168, 36, 36),
+		-2px -2px 20px rgb(117, 42, 42),
+		2px -2px 20px rgb(117, 42, 42),
+		-2px 2px 20px rgb(117, 42, 42);
 	}
 	p {
-		color: rgb(238, 24, 24);
+		color: white;
 	}
 	.btn-container {
 		button {

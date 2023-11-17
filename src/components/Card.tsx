@@ -3,8 +3,8 @@ import { charImageMap } from "../functions/filterImage";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import { pageContextType, pageContext } from "../App";
 import shuffle from "../functions/shuffle";
-import checkStatusCondition from "../functions/checkStatusCond";
-import updateScore from "../functions/updateScore";
+import {checkScoreCondition} from "../functions/checkScoreCondition";
+import {checkWinCondition} from "../functions/checkWinCondition";
 import "../styles/Card.scss";
 import cardBack from "../assets/glaze_lily_card_back.webp";
 
@@ -30,13 +30,14 @@ function Card({ charName }: CardProps) {
 
 	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
 		// Ignore multiple user clicks
-		if(!isClicked) {
+		if (!isClicked) {
 			handleCardClick();
 			const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
 			const cardsLimit = currCharList.length;
-			const pageStatus = checkStatusCondition({ cardsLimit, targetName });
-
-			updateScore({ targetName, currScore, bestScore, setBestScore, setCurrScore });
+			let pageStatus = checkScoreCondition({ targetName, currScore, bestScore, setBestScore, setCurrScore });
+			if(checkWinCondition(cardsLimit) == 'win'){
+				pageStatus = 'win'
+			}
 			setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
 			setPageStatus(pageStatus);
 			setCardsCounter((counter: number) => counter + 1);
@@ -70,6 +71,7 @@ function Card({ charName }: CardProps) {
 	// }, []);
 
 	const setPageStatus = (pageStatus: string) => {
+		console.log(pageStatus);
 		if (pageStatus == "win") {
 			setWinActive(true);
 		} else if (pageStatus == "lose") {
