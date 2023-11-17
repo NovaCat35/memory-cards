@@ -4,12 +4,12 @@
    @include endPage();
    @include  backgroundVideo();
    h1 {
-      color: rgb(15, 124, 233);
+      color: rgb(18, 122, 227);
       text-shadow: 
-      2px 2px 20px rgb(129, 190, 236),
-      -2px -2px 20px rgb(129, 190, 236),
-      2px -2px 20px rgb(129, 190, 236),
-      -2px 2px 20px rgb(129, 190, 236);
+      2px 2px 20px rgba(73, 172, 247, 0.377),
+      -2px -2px 20px rgba(73, 172, 247, 0.377),
+      2px -2px 20px rgba(73, 172, 247, 0.377),
+      -2px 2px 20px rgba(73, 172, 247, 0.377);
       margin-top: 30px;
    }
    p {
