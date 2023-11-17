@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { charImageMap } from "../functions/filterImage";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import { pageContextType, pageContext } from "../App";
 import shuffle from "../functions/shuffle";
-import checkScoreCondition from "../functions/checkCondition";
+import checkStatusCondition from "../functions/checkStatusCond";
+import updateScore from "../functions/updateScore";
 import "../styles/Card.scss";
+import cardBack from "../assets/glaze_lily_card_back.webp";
 
 interface CardProps {
 	charName: string;
@@ -20,19 +22,52 @@ function normalizeName(charName: string) {
 }
 
 function Card({ charName }: CardProps) {
-	const { currCharList, setCurrCharList, setCardsCounter } = useContext<gameContextType>(gameContext);
+	const { currCharList, isFlipped, isClicked, handleCardClick, setCurrCharList, setCardsCounter } = useContext<gameContextType>(gameContext);
 	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName]; // Finds the img src from the hashmap in filterImage.ts
 	const NormalizeName = normalizeName(charName);
+	// const [cardsFlipActive, setCardsFlipActive] = useState<boolean>(false);
 
 	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-		const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
-		const cardsLimit = currCharList.length;
-		const pageStatus = checkScoreCondition({ cardsLimit, targetName, currScore, bestScore, setBestScore, setCurrScore });
-		setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
-		setPageStatus(pageStatus);
-		setCardsCounter((counter: number) => counter + 1);
+		// Ignore multiple user clicks
+		if(!isClicked) {
+			handleCardClick();
+			const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
+			const cardsLimit = currCharList.length;
+			const pageStatus = checkStatusCondition({ cardsLimit, targetName });
+
+			updateScore({ targetName, currScore, bestScore, setBestScore, setCurrScore });
+			setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
+			setPageStatus(pageStatus);
+			setCardsCounter((counter: number) => counter + 1);
+		}
 	};
+
+	// useEffect(() => {
+	// 	if (cardsFlipActive) {
+	// 		const timeoutId = setTimeout(() => {
+	// 			setCardsFlipActive(false);
+	// 		}, 1000);
+	// 		return () => clearTimeout(timeoutId);
+	// 	}
+	// }, [cardsFlipActive]);
+
+	// useEffect(() => {
+	// 	if (isFlipped) {
+	// 		const timeoutIdStart = setTimeout(() => {
+	// 			setCardsFlipActive(true);
+	// 		}, 500);
+	// 		const timeoutIdEnd = setTimeout(() => {
+	// 			setCardsFlipActive(false);
+	// 			setIsFlipped(false)
+	// 		}, 500);
+	// 		return () => {
+	// 			clearTimeout(timeoutIdStart);
+	// 			clearTimeout(timeoutIdEnd);
+	// 		};
+	// 	}
+	// 	console.log(cardsFlipActive);
+	// }, []);
 
 	const setPageStatus = (pageStatus: string) => {
 		if (pageStatus == "win") {
@@ -43,9 +78,20 @@ function Card({ charName }: CardProps) {
 	};
 
 	return (
-		<div id={charName} className="main-card-container" onClick={handleClick}>
-			<h1>{NormalizeName}</h1>
-			<img src={imageSrc} alt="card image" />
+		<div id={charName} onClick={handleClick} className="scene">
+			<div className={isFlipped ? "card flip-active" : "card"}>
+				<div className="card-face card-face-front">
+					<div className="card-content">
+						<img src={imageSrc} alt="card front image" />
+						<h1>{NormalizeName}</h1>
+					</div>
+				</div>
+				<div className="card-face card-face-back">
+					<div className="card">
+						<img src={cardBack} alt="card back image" />
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

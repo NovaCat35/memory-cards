@@ -11,6 +11,9 @@ import backgroundVideo from "../../assets/game_backdrop.mp4";
 export interface gameContextType {
 	currCharList: string[];
 	cardsCounter: number;
+	isFlipped: boolean;
+	isClicked: boolean,
+	handleCardClick: () => void;
 	setCurrCharList: React.Dispatch<React.SetStateAction<string[]>>;
 	setCardsCounter: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -21,6 +24,8 @@ export default function GamePage() {
 	const [currCharList, setCurrCharList] = useState<string[]>([]);
 	const [cardsCounter, setCardsCounter] = useState<number>(0);
 	const [showCardsNumber, setShowCardsNumber] = useState<number>(0);
+	const [isFlipped, setIsFlipped] = useState<boolean>(false);
+	const [isClicked, setIsClicked] = useState(false);
 	const { charList, selectedLevel } = useContext(pageContext);
 
 	// Based on the selected difficulty, we choose a set number of (randomized) cards & set a limit to cards being displayed on UI
@@ -30,8 +35,33 @@ export default function GamePage() {
 		setShowCardsNumber(displayCards);
 	}, [charList, selectedLevel]);
 
+	const handleCardClick = () => {
+		// Prevent multiple clicks when flipping cards.
+		// After timeout below isClicked is false again and user can click on the card
+		if (isClicked) return;
+
+		setIsFlipped(true);
+		setTimeout(() => {
+			setIsFlipped(false);
+			setIsClicked(false);
+		}, 1000);
+	};
+
+	/**
+	 * Because Card List UI is regenerated each time we click on a card, we track the card flip on this parent level
+	 *	We then wait a few seconds before we flip back to show the new cards
+	 */
+	// useEffect(() => {
+	// 	if (cardsFlipActive) {
+	// 		const timeoutId = setTimeout(() => {
+	// 			setCardsFlipActive(false);
+	// 		}, 1000);
+	// 		return () => clearTimeout(timeoutId);
+	// 	}
+	// }, [cardsFlipActive]);
+
 	return (
-		<gameContext.Provider value={{ currCharList, setCurrCharList, cardsCounter, setCardsCounter }}>
+		<gameContext.Provider value={{ currCharList, setCurrCharList, isFlipped, isClicked, handleCardClick, cardsCounter, setCardsCounter }}>
 			<div className="main-game-container">
 				<video autoPlay muted loop playsInline id="backgroundVideo">
 					<source src={backgroundVideo} type="video/mp4" />

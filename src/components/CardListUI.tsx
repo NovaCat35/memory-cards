@@ -1,6 +1,6 @@
 import Card from "./Card.tsx";
 import shuffle from "../functions/shuffle";
-import {savedClicked} from "../functions/checkCondition.ts";
+import { savedClicked } from "../functions/updateScore.ts";
 import { v4 as uuidv4 } from "uuid";
 
 interface CardListUIProps {
@@ -18,10 +18,10 @@ function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
 		[newCurrCharList[0], newCurrCharList[targetIndex]] = [newCurrCharList[targetIndex], newCurrCharList[0]];
 	}
 
-   // We only want to show a certain number of card on UI base on the difficulty.
-   // We ALSO shuffle the list so the first element isn't always the 'unclicked' card
+	// We only want to show a certain number of card on UI base on the difficulty.
+	// We ALSO shuffle the list so the first element isn't always the 'unclicked' card
 	let shownCharList = newCurrCharList.slice(0, showCardsNumber);
-   shownCharList = shuffle({charList: shownCharList})
+	shownCharList = shuffle({ charList: shownCharList });
 
 	return (
 		<>
