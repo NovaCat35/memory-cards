@@ -40,10 +40,12 @@
 			}
 		}
 		img {
+			height: 205.71;
 			width: 120px;
 			z-index: 1;
 			@media screen and (min-width: 700px) {
 				width: 130px;
+				height: 222.85;
 			}
 		}
 	}

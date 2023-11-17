@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { pageContext } from "../../App";
 import loadingVideo from "../../assets/klee-trip-loading.mp4";
+import kleePoster from "../../assets/klee_walking_poster.jpeg";
 import "../../styles/LoadingPage.scss";
 
 type LoadingPageProps = {
@@ -34,7 +35,7 @@ function LoadingPage({ setPageActive }: LoadingPageProps) {
 	return (
 		<div className="loading-screen">
 			<h1>{loadingText}</h1>
-			<video autoPlay muted loop playsInline id="loadingVideo">
+			<video muted autoPlay loop playsInline id="loadingVideo" poster={kleePoster}>
 				<source src={loadingVideo} type="video/mp4" />
 			</video>
 		</div>

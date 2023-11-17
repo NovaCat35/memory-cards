@@ -7,6 +7,7 @@ import Title from "../Title.tsx";
 import selectCardsAmount from "../../functions/selectCardsAmount.ts";
 import "../../styles/GamePlateform.scss";
 import backgroundVideo from "../../assets/game_backdrop.mp4";
+import backgroundPoster from "../../assets/game_backdrop_poster.jpeg";
 
 export interface gameContextType {
 	currCharList: string[];
@@ -63,7 +64,7 @@ export default function GamePage() {
 	return (
 		<gameContext.Provider value={{ currCharList, setCurrCharList, isFlipped, isClicked, handleCardClick, cardsCounter, setCardsCounter }}>
 			<div className="main-game-container">
-				<video autoPlay muted loop playsInline id="backgroundVideo">
+				<video muted autoPlay loop playsInline id="backgroundVideo" poster={backgroundPoster}>
 					<source src={backgroundVideo} type="video/mp4" />
 				</video>
 				<header>

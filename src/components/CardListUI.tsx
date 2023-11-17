@@ -2,6 +2,7 @@ import Card from "./Card.tsx";
 import shuffle from "../functions/shuffle";
 import { savedClicked } from "../functions/updateScore.ts";
 import { v4 as uuidv4 } from "uuid";
+// import { useEffect } from "react";
 
 interface CardListUIProps {
 	currCharList: string[];
@@ -22,6 +23,11 @@ function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
 	// We ALSO shuffle the list so the first element isn't always the 'unclicked' card
 	let shownCharList = newCurrCharList.slice(0, showCardsNumber);
 	shownCharList = shuffle({ charList: shownCharList });
+
+	// useEffect(() => {
+	// 	console.log('wth')
+	// },[])
+	// console.log('oh my ')
 
 	return (
 		<>

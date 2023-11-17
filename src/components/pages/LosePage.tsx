@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import "../../styles/DefeatPage.scss";
-import backgroundVideo from "../../assets/raiden-shogun-meditating.mp4";
 import EndButtons from "../EndButtons.tsx";
 import { useSoundContext } from "../../contexts/SoundContext";
+import backgroundVideo from "../../assets/raiden-shogun-meditating.mp4";
+import backgroundPoster from "../../assets/plane_of_euthymia.webp";
 // import defeatGif from "../../assets/defeat.gif";
 
 function LosePage() {
@@ -37,7 +38,7 @@ function LosePage() {
 
 	return (
 		<div className="main-lose-container">
-			<video autoPlay muted loop playsInline id="backgroundVideo">
+			<video muted autoPlay loop playsInline id="backgroundVideo" poster={backgroundPoster}>
 				<source src={backgroundVideo} type="video/mp4" />
 			</video>
 			<h1>Challenge Failed</h1>

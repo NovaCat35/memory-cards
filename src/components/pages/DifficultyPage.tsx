@@ -4,6 +4,7 @@ import Title from "../Title.tsx";
 import "../../styles/DifficultyPage.scss";
 import paimonSVG from "../../assets/paimon.webp";
 import backgroundVideo from "../../assets/game_backdrop.mp4";
+import backgroundPoster from "../../assets/game_backdrop_poster.jpeg";
 
 function DifficultyPage() {
 	const { setSelectedLevel, setDifficultyActive } = useContext(pageContext);
@@ -15,7 +16,7 @@ function DifficultyPage() {
 
 	return (
 		<div className="main-difficulty-page-container">
-			<video autoPlay muted loop playsInline id="backgroundVideo">
+			<video muted autoPlay loop playsInline id="backgroundVideo" poster={backgroundPoster}>
 				<source src={backgroundVideo} type="video/mp4" />
 			</video>
 			<Title />
