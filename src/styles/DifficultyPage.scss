@@ -88,13 +88,12 @@
 
 @keyframes scrollInFromLeft {
 	0% {
-		overflow: hidden;
-		white-space: nowrap; /* Prevent line breaks during animation */
+		// white-space: nowrap; /* Prevent line breaks during animation */
 		width: 0;
 	}
 	100% {
-		overflow: auto;
-		white-space: wrap; /* Reform line breaks */
+		// overflow: auto;
+		// white-space: wrap; /* Reform line breaks */
 		width: 65%;
 	}
 }

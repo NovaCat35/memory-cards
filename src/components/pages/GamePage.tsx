@@ -39,9 +39,13 @@ export default function GamePage() {
 	const handleCardClick = () => {
 		// Prevent multiple clicks when flipping cards.
 		// After timeout below isClicked is false again and user can click on the card
-		if (isClicked) return;
-
+		// if (isFlipped || isClicked) {
+		// 	console.log('wthki')
+		// 	return;
+		// }
+		setIsClicked(true);
 		setIsFlipped(true);
+
 		setTimeout(() => {
 			setIsFlipped(false);
 			setIsClicked(false);

@@ -71,7 +71,6 @@ function Card({ charName }: CardProps) {
 	// }, []);
 
 	const setPageStatus = (pageStatus: string) => {
-		console.log(pageStatus);
 		if (pageStatus == "win") {
 			setWinActive(true);
 		} else if (pageStatus == "lose") {
