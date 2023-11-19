@@ -1,8 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { charImageMap } from "../functions/filterImage";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import { pageContextType, pageContext } from "../App";
-import shuffle from "../functions/shuffle";
 import {checkScoreCondition} from "../functions/checkScoreCondition";
 import {checkWinCondition} from "../functions/checkWinCondition";
 import "../styles/Card.scss";
@@ -22,7 +21,7 @@ function normalizeName(charName: string) {
 }
 
 function Card({ charName }: CardProps) {
-	const { currCharList, isFlipped, isClicked, handleCardClick, setCurrCharList, setCardsCounter } = useContext<gameContextType>(gameContext);
+	const { currCharList, isFlipped, handleCardClick, setCardsCounter } = useContext<gameContextType>(gameContext);
 	const { setWinActive, setLoseActive, currScore, bestScore, setBestScore, setCurrScore } = useContext<pageContextType>(pageContext);
 	const imageSrc = charImageMap[charName]; // Finds the img src from the hashmap in filterImage.ts
 	const NormalizeName = normalizeName(charName);
@@ -30,7 +29,7 @@ function Card({ charName }: CardProps) {
 
 	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
 		// Ignore multiple user clicks
-		if (!isClicked) {
+		if (!isFlipped) {
 			handleCardClick();
 			const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
 			const cardsLimit = currCharList.length;
@@ -38,37 +37,13 @@ function Card({ charName }: CardProps) {
 			if(checkWinCondition(cardsLimit) == 'win'){
 				pageStatus = 'win'
 			}
-			setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
 			setPageStatus(pageStatus);
 			setCardsCounter((counter: number) => counter + 1);
 		}
 	};
-
-	// useEffect(() => {
-	// 	if (cardsFlipActive) {
-	// 		const timeoutId = setTimeout(() => {
-	// 			setCardsFlipActive(false);
-	// 		}, 1000);
-	// 		return () => clearTimeout(timeoutId);
-	// 	}
-	// }, [cardsFlipActive]);
-
-	// useEffect(() => {
-	// 	if (isFlipped) {
-	// 		const timeoutIdStart = setTimeout(() => {
-	// 			setCardsFlipActive(true);
-	// 		}, 500);
-	// 		const timeoutIdEnd = setTimeout(() => {
-	// 			setCardsFlipActive(false);
-	// 			setIsFlipped(false)
-	// 		}, 500);
-	// 		return () => {
-	// 			clearTimeout(timeoutIdStart);
-	// 			clearTimeout(timeoutIdEnd);
-	// 		};
-	// 	}
-	// 	console.log(cardsFlipActive);
-	// }, []);
+	useEffect(() => {
+		console.log('new mounted card')
+	},[])
 
 	const setPageStatus = (pageStatus: string) => {
 		if (pageStatus == "win") {
