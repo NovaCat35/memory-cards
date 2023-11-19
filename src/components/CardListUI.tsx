@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import Card from "./Card.tsx";
 import shuffle from "../functions/shuffle";
@@ -33,14 +33,6 @@ function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
 		shownCharList = newCurrCharList.slice(0, showCardsNumber);
 		shownCharList = shuffle({ charList: shownCharList });
 	}
-
-	useEffect(() => {
-		console.log("Mounting Card LIST");
-		return () => {
-			console.log("unmounting");
-		};
-	}, []);
-	console.log("Inside CardList UI");
 
 	/**
 	 * To prevent the regeneration of cards every time there's a state change we have to set the keys as initial indexes instead of using uuidv4()

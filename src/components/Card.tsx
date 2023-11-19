@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { charImageMap } from "../functions/filterImage";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import { pageContextType, pageContext } from "../App";
@@ -30,7 +30,6 @@ function Card({ charName }: CardProps) {
 	const handleClick = (e: React.MouseEvent<HTMLElement>) => {
 		// Ignore multiple user clicks
 		if (!isFlipped) {
-			handleCardClick();
 			const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
 			const cardsLimit = currCharList.length;
 			let pageStatus = checkScoreCondition({ targetName, currScore, bestScore, setBestScore, setCurrScore });
@@ -39,11 +38,9 @@ function Card({ charName }: CardProps) {
 			}
 			setPageStatus(pageStatus);
 			setCardsCounter((counter: number) => counter + 1);
+			handleCardClick(pageStatus); // handles the card flips
 		}
 	};
-	useEffect(() => {
-		console.log('new mounted card')
-	},[])
 
 	const setPageStatus = (pageStatus: string) => {
 		if (pageStatus == "win") {

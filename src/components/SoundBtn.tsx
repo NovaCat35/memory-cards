@@ -5,6 +5,9 @@ import VolumeBtnOff from "../assets/volume_off.svg";
 import "../styles/Sound.scss";
 import { useSoundContext } from "../contexts/SoundContext";
 
+/**
+ * This function keeps track of the main game music playlist & checks on active sound button functionality.
+ */
 function SoundBtn() {
 	const { currSoundActive, setCurrSoundActive, playMainTrack, playWinTrack, playDefeatTrack, stopMainTrack, stopDefeatTrack, stopWinTrack } = useSoundContext();
 	const { winActive, loseActive } = useContext(pageContext);

@@ -9,12 +9,13 @@ import "../../styles/GamePlateform.scss";
 import backgroundVideo from "../../assets/game_backdrop.mp4";
 import backgroundPoster from "../../assets/game_backdrop_poster.jpeg";
 import shuffle from "../../functions/shuffle";
+import { useSoundContext } from "../../contexts/SoundContext.tsx";
 
 export interface gameContextType {
 	currCharList: string[];
 	cardsCounter: number;
 	isFlipped: boolean;
-	handleCardClick: () => void;
+	handleCardClick: (pageStatus:string) => void;
 	setCurrCharList: React.Dispatch<React.SetStateAction<string[]>>;
 	setCardsCounter: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -26,7 +27,8 @@ export default function GamePage() {
 	const [cardsCounter, setCardsCounter] = useState<number>(0);
 	const [showCardsNumber, setShowCardsNumber] = useState<number>(0);
 	const [isFlipped, setIsFlipped] = useState<boolean>(false);
-	const { charList, selectedLevel } = useContext(pageContext);
+	const { charList, selectedLevel} = useContext(pageContext);
+	const { currSoundActive, playFlipCard, stopFlipCard } = useSoundContext();
 
 	// Based on the selected difficulty, we choose a set number of (randomized) cards & set a limit to cards being displayed on UI
 	useEffect(() => {
@@ -35,35 +37,33 @@ export default function GamePage() {
 		setShowCardsNumber(displayCards);
 	}, [charList, selectedLevel]);
 
-	const handleCardClick = () => {
+	const flipCardSound = () => {
+		if (currSoundActive) {
+			stopFlipCard();
+			playFlipCard();
+		} else {
+			stopFlipCard();
+		}
+	};
+
+	const handleCardClick = (pageStatus:string) => {
 		// Prevent multiple clicks when flipping cards.
-		if (isFlipped) {
+		if (isFlipped || pageStatus == 'win' || pageStatus=='lose') {
 			return;
 		}
 		setIsFlipped(true);
-		
+		flipCardSound();
+
 		// Allow card shuffles to happen between intermission of card front & back flip so we don't awkwardly switch image
 		// setTimeout(()=> {
-			setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
+		setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
 		// }, 0)
 
 		setTimeout(() => {
+			flipCardSound();
 			setIsFlipped(false);
 		}, 1000);
 	};
-
-	/**
-	 * Because Card List UI is regenerated each time we click on a card, we track the card flip on this parent level
-	 *	We then wait a few seconds before we flip back to show the new cards
-	 */
-	// useEffect(() => {
-	// 	if (cardsFlipActive) {
-	// 		const timeoutId = setTimeout(() => {
-	// 			setCardsFlipActive(false);
-	// 		}, 1000);
-	// 		return () => clearTimeout(timeoutId);
-	// 	}
-	// }, [cardsFlipActive]);
 
 	return (
 		<gameContext.Provider value={{ currCharList, setCurrCharList, isFlipped, handleCardClick, cardsCounter, setCardsCounter }}>
@@ -81,6 +81,5 @@ export default function GamePage() {
 				<CardCounter cardsCounter={cardsCounter} totalCards={currCharList.length} />
 			</div>
 		</gameContext.Provider>
-		
 	);
 }

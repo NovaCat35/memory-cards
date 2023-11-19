@@ -8,14 +8,17 @@ import pluieSurLaVille from "../assets/audio/pluie_sur_la_ville.mp3";
 import bustlingAfternoon from "../assets/audio/bustling_afternoon_in_mondstadt.mp3";
 import lumidouceHarbor from "../assets/audio/lumidouce_harbor.mp3";
 import dreamOfHomeland from "../assets/audio/dream_of_homeland.mp3";
+import cardFlip from "../assets/audio/flip_card.mp3"
 
 interface soundContextType {
 	soundFiles: string[];
 	currentSoundIndex: number;
 	currSoundActive: boolean;
+	playFlipCard: () => void;
 	playMainTrack: () => void;
 	playWinTrack: () => void;
 	playDefeatTrack: () => void;
+	stopFlipCard: () => void;
 	stopMainTrack: () => void;
 	stopWinTrack: () => void;
 	stopDefeatTrack: () => void;
@@ -40,9 +43,11 @@ export const SoundProvider = ({ children }: SoundProviderProps) => {
 	const soundFiles = [angelsShare, catsTail, halcyonTimes, cakesAndAle, pluieSurLaVille, bustlingAfternoon];
 	const defeatTrack = dreamOfHomeland;
 	const winTrack = lumidouceHarbor;
+	const flipCard = cardFlip;
 
 	const [currSoundActive, setCurrSoundActive] = useState<boolean>(false);
 	const [currentSoundIndex, setCurrentSoundIndex] = useState(0);
+	const [playFlipCard, { stop: stopFlipCard }] = useSound(flipCard);
 	const [playWinTrack, { stop: stopWinTrack }] = useSound(winTrack, { loop: true });
 	const [playDefeatTrack, { stop: stopDefeatTrack }] = useSound(defeatTrack, { loop: true });
 	const [playMainTrack, { stop: stopMainTrack }] = useSound(soundFiles[currentSoundIndex], {
@@ -58,9 +63,11 @@ export const SoundProvider = ({ children }: SoundProviderProps) => {
 		currentSoundIndex,
 		setCurrSoundActive,
 		setCurrentSoundIndex,
+		playFlipCard,
 		playMainTrack,
 		playWinTrack,
 		playDefeatTrack,
+		stopFlipCard,
 		stopMainTrack,
 		stopWinTrack,
 		stopDefeatTrack,
