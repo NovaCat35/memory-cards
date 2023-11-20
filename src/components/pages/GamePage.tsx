@@ -58,9 +58,7 @@ export default function GamePage() {
 		flipCardSound();
 
 		// Allow card shuffles to happen between intermission of card front & back flip so we don't awkwardly switch image
-		// setTimeout(()=> {
 		setCurrCharList(shuffle({ charList: currCharList })); // shuffle the cards whenever you click on a card
-		// }, 0)
 
 		setTimeout(() => {
 			flipCardSound();
