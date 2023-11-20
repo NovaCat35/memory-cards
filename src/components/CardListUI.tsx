@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import Card from "./Card.tsx";
 import shuffle from "../functions/shuffle";
@@ -13,10 +13,20 @@ interface CardListUIProps {
 let shownCharList: string[] = [];
 
 function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
-	const { isFlipped } = useContext<gameContextType>(gameContext);
+	const { isFlipped, shuffleActive } = useContext<gameContextType>(gameContext);
 
-	// IF not flipped, that means we just got started or ending a flip, which in both cases require UI to display a new set of shown cards
-	if (!isFlipped) {
+	// Reset the shownCharList if we're starting all over!
+	useEffect(() => {
+		shownCharList = []
+	},[]);
+
+	/**
+	 * CASE 1: not flipped, avoid shuffling the cards UI and wait until flip is active again to shuffle
+	 * CASE 2: shuffle active when we're handling card clicks, otherwise shuffle always inactive (e.g. to prevent rerender shuffles from sound btn)
+	 * CASE 3: we automatically shuffle at very beginning of cardlist ui render.
+	*/ 
+	if ((!isFlipped && shuffleActive) || shownCharList.length == 0) {
+		console.log("hi");
 		// Find the first char index that is not clicked yet
 		const targetIndex = currCharList.findIndex((char) => !savedClicked.includes(char));
 		const newCurrCharList = [...currCharList];

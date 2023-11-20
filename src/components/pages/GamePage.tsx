@@ -15,7 +15,8 @@ export interface gameContextType {
 	currCharList: string[];
 	cardsCounter: number;
 	isFlipped: boolean;
-	handleCardClick: (pageStatus:string) => void;
+	shuffleActive: boolean;
+	handleCardClick: (pageStatus: string) => void;
 	setCurrCharList: React.Dispatch<React.SetStateAction<string[]>>;
 	setCardsCounter: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -27,7 +28,8 @@ export default function GamePage() {
 	const [cardsCounter, setCardsCounter] = useState<number>(0);
 	const [showCardsNumber, setShowCardsNumber] = useState<number>(0);
 	const [isFlipped, setIsFlipped] = useState<boolean>(false);
-	const { charList, selectedLevel} = useContext(pageContext);
+	const [shuffleActive, setShuffleActive] = useState<boolean>(false);
+	const { charList, selectedLevel } = useContext(pageContext);
 	const { currSoundActive, playFlipCard, stopFlipCard } = useSoundContext();
 
 	// Based on the selected difficulty, we choose a set number of (randomized) cards & set a limit to cards being displayed on UI
@@ -46,11 +48,12 @@ export default function GamePage() {
 		}
 	};
 
-	const handleCardClick = (pageStatus:string) => {
+	const handleCardClick = (pageStatus: string) => {
 		// Prevent multiple clicks when flipping cards.
-		if (isFlipped || pageStatus == 'win' || pageStatus=='lose') {
+		if (isFlipped || pageStatus == "win" || pageStatus == "lose") {
 			return;
 		}
+		setShuffleActive(true);
 		setIsFlipped(true);
 		flipCardSound();
 
@@ -63,10 +66,13 @@ export default function GamePage() {
 			flipCardSound();
 			setIsFlipped(false);
 		}, 1000);
+		setTimeout(() => {
+			setShuffleActive(false);
+		}, 1500);
 	};
 
 	return (
-		<gameContext.Provider value={{ currCharList, setCurrCharList, isFlipped, handleCardClick, cardsCounter, setCardsCounter }}>
+		<gameContext.Provider value={{ shuffleActive, currCharList, setCurrCharList, isFlipped, handleCardClick, cardsCounter, setCardsCounter }}>
 			<div className="main-game-container">
 				<video muted autoPlay loop playsInline id="backgroundVideo" poster={backgroundPoster}>
 					<source src={backgroundVideo} type="video/mp4" />
