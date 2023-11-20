@@ -1,7 +1,7 @@
 # Memory Cards
 A fun fan-project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. As some wise but annoying puzzle ads out there once said: exercise your brain cells, and brace yourself for a wild ride. 🧩
 
-Link: https://memory-cards.pages.dev/ [Work in progress: file optimization]
+Link: https://memory-cards.pages.dev/ 
 
 <img width="982" alt="Screenshot 2023-11-17 at 1 27 10 PM" src="https://github.com/NovaCat35/weather-app/assets/54908064/58fed792-1756-4c45-b8fe-5ca14901b49e">
 
@@ -26,6 +26,7 @@ Another key takeaway is understanding rerendering, mount, and unmounting within 
 ```
    npm install uuidv4 
    npm install use-sound
+   npm install react-parallax-tilt
 ```
 
 ## Sources and References 🖌️

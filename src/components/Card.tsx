@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { charImageMap } from "../functions/filterImage";
 import { gameContextType, gameContext } from "./pages/GamePage";
 import { pageContextType, pageContext } from "../App";
-import {checkScoreCondition} from "../functions/checkScoreCondition";
-import {checkWinCondition} from "../functions/checkWinCondition";
+import { checkScoreCondition } from "../functions/checkScoreCondition";
+import { checkWinCondition } from "../functions/checkWinCondition";
 import "../styles/Card.scss";
 import cardBack from "../assets/glaze_lily_card_back.webp";
+import Tilt from "react-parallax-tilt";
 
 interface CardProps {
 	charName: string;
@@ -33,8 +34,8 @@ function Card({ charName }: CardProps) {
 			const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
 			const cardsLimit = currCharList.length;
 			let pageStatus = checkScoreCondition({ targetName, currScore, bestScore, setBestScore, setCurrScore });
-			if(checkWinCondition({cardsLimit, setCurrScore}) == 'win'){
-				pageStatus = 'win'
+			if (checkWinCondition({ cardsLimit, setCurrScore }) == "win") {
+				pageStatus = "win";
 			}
 			setPageStatus(pageStatus);
 			setCardsCounter((counter: number) => counter + 1);
@@ -51,21 +52,45 @@ function Card({ charName }: CardProps) {
 	};
 
 	return (
-		<div id={charName} onClick={handleClick} className="scene">
-			<div className={isFlipped ? "card flip-active" : "card"}>
-				<div className="card-face card-face-front">
-					<div className="card-content">
-						<img src={imageSrc} alt="card front image" />
-						<h1>{NormalizeName}</h1>
+		<>
+			{isFlipped ? (
+				<Tilt glareEnable={false} glareMaxOpacity={0}>
+					<div id={charName} onClick={handleClick} className="scene">
+						<div className={isFlipped ? "card flip-active" : "card"}>
+							<div className="card-face card-face-front">
+								<div className="card-content">
+									<img src={imageSrc} alt="card front image" />
+									<h1>{NormalizeName}</h1>
+								</div>
+							</div>
+							<div className="card-face card-face-back">
+								<div className="card">
+									<img src={cardBack} alt="card back image" />
+								</div>
+							</div>
+						</div>{" "}
 					</div>
-				</div>
-				<div className="card-face card-face-back">
-					<div className="card">
-						<img src={cardBack} alt="card back image" />
+				</Tilt>
+			) : (
+				<Tilt glareEnable={true} glareMaxOpacity={0.3} glareColor="#ffffff" glarePosition="all" glareBorderRadius="20px">
+					<div id={charName} onClick={handleClick} className="scene">
+						<div className={isFlipped ? "card flip-active" : "card"}>
+							<div className="card-face card-face-front">
+								<div className="card-content">
+									<img src={imageSrc} alt="card front image" />
+									<h1>{NormalizeName}</h1>
+								</div>
+							</div>
+							<div className="card-face card-face-back">
+								<div className="card">
+									<img src={cardBack} alt="card back image" />
+								</div>
+							</div>
+						</div>{" "}
 					</div>
-				</div>
-			</div>
-		</div>
+				</Tilt>
+			)}
+		</>
 	);
 }
 
