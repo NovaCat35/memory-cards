@@ -2,7 +2,7 @@
 @import "./Fonts.scss";
 
 .main-difficulty-page-container {
-	@include backgroundVideo();
+	@include backgroundVideoMobile();
 	display: flex;
 	flex-direction: column;
 	align-items: center;
