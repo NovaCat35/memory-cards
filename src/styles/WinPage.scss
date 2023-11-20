@@ -6,13 +6,16 @@
    h1 {
       color: rgb(18, 122, 227);
       text-shadow: 
-      2px 2px 20px rgba(73, 172, 247, 0.377),
+      2px 2px 20px rgba(73, 172, 247, 0.163),
       -2px -2px 20px rgba(73, 172, 247, 0.377),
-      2px -2px 20px rgba(73, 172, 247, 0.377),
-      -2px 2px 20px rgba(73, 172, 247, 0.377);
+      2px -2px 20px rgba(243, 243, 243, 0.16),
+      -2px 2px 20px rgba(215, 226, 234, 0.3);
       margin-top: 30px;
+      animation: 1s ease-in 0s scaleIn forwards;
    }
-   p {
+   p.description {
+      opacity: 0;
+		animation: 1s ease-in 1s revealFast forwards;
       color: white;
       text-shadow: 1px 1px 5px rgb(31, 77, 177);
    }
@@ -25,3 +28,15 @@
       }
    }
 }
+
+@keyframes scaleIn {
+	0% {
+		scale: .5;
+		opacity: 0;
+	}
+	100% {
+		scale: 1;
+		opacity:1;
+	}
+}
+

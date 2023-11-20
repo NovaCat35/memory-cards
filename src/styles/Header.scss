@@ -28,16 +28,24 @@
 		.tcg-logo-container {
 			position: relative;
 			#tcg-logo {
+				cursor: pointer;
+				transition: all .7s ease-in-out;
+				z-index: 1;
+				&:hover{
+					transform: rotate(360deg);
+				}
 				width: 90px;
 				@media screen and (min-width: 700px) {
 					width: 95px;
 				}
 			}
+
 			#text-logo {
 				position: absolute;
 				left: -12px;
 				bottom: -10px;
 				width: 115px;
+				z-index: -1;
 				@media screen and (min-width: 700px) {
 					left: -12px;
 					bottom: -10px;
@@ -54,7 +62,7 @@
 		padding: 5px 6px;
 		border-radius: 10px;
 		margin: 0;
-		margin-top: 10px;
+		margin-top: 12px;
 		@media screen and (min-width: 700px) {
 			padding: 5px 10px;
 		}
@@ -90,7 +98,7 @@
 				}
 			}
 		}
-		@media screen and (min-width: 700px){
+		@media screen and (min-width: 700px) {
 			gap: 30px;
 		}
 	}

@@ -10,7 +10,9 @@ function Title() {
 				<img id="genshin-logo" src={GenshinLogo} alt="genshin logo" />
 				<div className="divide">X</div>
 				<div className="tcg-logo-container">
-					<img id="tcg-logo" src={TCGLogo} alt="tcg cards logo" />
+					<a href="https://github.com/NovaCat35/memory-cards">
+						<img id="tcg-logo" src={TCGLogo} alt="tcg cards logo" />
+					</a>
 					<img id="text-logo" src={TextLogo} alt="text logo" />
 				</div>
 			</div>

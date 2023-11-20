@@ -33,7 +33,7 @@ function Card({ charName }: CardProps) {
 			const targetName = e.currentTarget.getAttribute("id") || ""; // typescript wants assurance there's no 'null'
 			const cardsLimit = currCharList.length;
 			let pageStatus = checkScoreCondition({ targetName, currScore, bestScore, setBestScore, setCurrScore });
-			if(checkWinCondition(cardsLimit) == 'win'){
+			if(checkWinCondition({cardsLimit, setCurrScore}) == 'win'){
 				pageStatus = 'win'
 			}
 			setPageStatus(pageStatus);

@@ -1,4 +1,4 @@
-# Memory Card
+# Memory Cards
 A fun fan-project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. As some wise but annoying puzzle ads out there once said: exercise your brain cells, and brace yourself for a wild ride. 🧩
 
 Link: https://memory-cards.pages.dev/ [Work in progress: file optimization]

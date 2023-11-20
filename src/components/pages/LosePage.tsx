@@ -42,7 +42,7 @@ function LosePage() {
 				<source src={backgroundVideo} type="video/mp4" />
 			</video>
 			<h1>Challenge Failed</h1>
-			<p>You have made yourself an enemy of eternity.</p>
+			<p className="description">You have made yourself an enemy of eternity.</p>
 			{/* <img src={gifSrc} alt="victory gif" /> */}
 			<EndButtons activeType="lose" />
 		</div>
