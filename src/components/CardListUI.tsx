@@ -42,8 +42,6 @@ function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
 			{shownCharList.map((char, index) => (
 				<Card key={index} charName={char} />
 			))}
-			{/* <Card charName={"amber"} />
-			<Card charName={"paimon"} /> */}
 		</>
 	);
 }

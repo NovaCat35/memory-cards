@@ -10,10 +10,10 @@ This is a fan-made project base on the game Genshin Impact. This project feature
 Game premise is created based on this [React course](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) from The Odin Project. Much appreciation to this great source.
 
 ## Features 🎯
-- Loading screen 
+- Loading screen (API fetching)
 - Level Difficulty Selector
 - 3D Card styling 
-- Sound Option
+- Sound Option & Playlist
 
 ## Challenges 😖
 Creator's note: this project was a deep dive into React, exploring hooks, contexts, and API integration for a complete game experience.
