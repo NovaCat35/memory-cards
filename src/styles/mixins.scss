@@ -99,30 +99,28 @@ $filter-yellow: invert(95%) sepia(95%) saturate(2368%) hue-rotate(328deg) bright
 	&:active {
 		transform: translateY(5px);
 	}
-	@media screen and (min-width:700px) {
+	@media screen and (min-width: 700px) {
 		font-size: 1.3rem;
 	}
 }
 
 @mixin backgroundVideo() {
 	#backgroundVideo {
-		@media screen and (min-width: 500px) {
-			position: fixed;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 110%;
-			height: auto;
-			min-width: 110%;
-			min-height: 100%;
-			object-fit: cover;
-			z-index: -1;
-		}
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 110%;
+		height: auto;
+		min-width: 110%;
+		min-height: 100%;
+		object-fit: cover;
+		z-index: -1;
 	}
 }
 
 @mixin backgroundVideoMobile() {
-	background-image: url('../assets/game_backdrop_poster.jpeg');
+	background-image: url("../assets/game_backdrop_poster.jpeg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
