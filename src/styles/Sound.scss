@@ -3,6 +3,8 @@ $filter-darkish-blue: invert(13%) sepia(45%) saturate(552%) hue-rotate(190deg) b
 	position: fixed;
 	left: 15px;
 	bottom: 15px;
+	transform: translateX(-100px);
+	animation: 2s ease-in 4s rollIn forwards;
 	button {
 		background-color: rgb(220, 230, 245);
 		cursor: pointer;
@@ -29,3 +31,13 @@ $filter-darkish-blue: invert(13%) sepia(45%) saturate(552%) hue-rotate(190deg) b
 		bottom: 30px;
 	}
 }
+
+@keyframes rollIn {
+	0% {
+	  transform: translateX(-100px) rotate(0deg);
+	}
+	100% {
+	  transform: translateX(0) rotate(360deg);
+	}
+ }
+ 

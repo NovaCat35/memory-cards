@@ -20,7 +20,7 @@ Creator's note: this project was a deep dive into React, exploring hooks, contex
 
 Somewhere along the project, a key lesson learned involved managing large file uploads. After grappling with GitHub's LFS and upload issues with large videos and images, I ultimately had to re-optimize the way my file is set up, trim and rework larger uploads. While this is a cautionary tale of painstaking hours spent trying to make the game flow better I learned a lot about handling uploads and optimization for game flow.
 
-Another key takeaway is understanding rerendering, mount, and unmounting within child contexts and moving states up. For example, there was some issue each individual card state never being set properly since the card component is constantly remounted when clicked on. These problems helped me better understand using effects and contexts for the future.
+Another key takeaway is understanding rerendering, mounting and unmounting, and the different hooks within child contexts and levels. For example, there was some issue each individual card state never being set properly since the card component is constantly remounted when clicked on. These problems helped me better understand the rerendering processes and using effects and contexts for the future.
 
 ## Libraries 📚
 ```
