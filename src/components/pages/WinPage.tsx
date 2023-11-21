@@ -22,7 +22,7 @@ function WinPage() {
 	return (
 		<div className="main-win-container">
 			<h1>You Did It, Bravo!</h1>
-			<p className="description">Raise your glasses in celebration! If you don't have one, then just raise your hand in lieu.</p>
+			<p className="description">Raise your glasses in celebration! Here's a toast to your unwavering spirit & the exciting adventures that lie ahead 🌟</p>
 			<video muted autoPlay loop playsInline id="backgroundVideo" poster={backgroundPoster}>
 				<source src={backgroundVideo} type="video/mp4" />
 			</video>

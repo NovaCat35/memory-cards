@@ -72,7 +72,7 @@ function Card({ charName }: CardProps) {
 					</div>
 				</Tilt>
 			) : (
-				<Tilt glareEnable={true} glareMaxOpacity={0.3} glareColor="#ffffff" glarePosition="all" glareBorderRadius="20px">
+				<Tilt glareEnable={true} glareMaxOpacity={0.5} glareColor="#ffffff" glarePosition="left" glareBorderRadius="20px">
 					<div id={charName} onClick={handleClick} className="scene">
 						<div className={isFlipped ? "card flip-active" : "card"}>
 							<div className="card-face card-face-front">

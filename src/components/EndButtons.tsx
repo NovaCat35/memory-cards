@@ -18,7 +18,7 @@ function EndButtons({activeType}:EndButtonsProps) {
 		<div className="btn-container">
 			<button onClick={() => (activeType == 'win') ? setWinActive(false): setLoseActive(false)}>
 				<div className="img-wrapper"><img className="return" src={ReturnSVG} alt="continue icon" /></div>
-				<p>Retry</p>
+				{(activeType == 'win') ? <p>New Round</p> : <p>Retry</p>}
 			</button>
 			<button onClick={handleReturnToMenu}>
 				<div className="img-wrapper"><img className="cancel" src={CloseSVG} alt="leave icon" /></div>

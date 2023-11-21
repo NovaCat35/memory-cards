@@ -26,7 +26,6 @@ function CardListUI({ currCharList, showCardsNumber }: CardListUIProps) {
 	 * CASE 3: we automatically shuffle at very beginning of cardlist ui render.
 	*/ 
 	if ((!isFlipped && shuffleActive) || shownCharList.length == 0) {
-		console.log("hi");
 		// Find the first char index that is not clicked yet
 		const targetIndex = currCharList.findIndex((char) => !savedClicked.includes(char));
 		const newCurrCharList = [...currCharList];
