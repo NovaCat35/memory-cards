@@ -24,7 +24,7 @@ function DifficultyPage() {
 				<img className="paimon-svg" src={paimonSVG} alt="paimon svg" />
 				<div>
 					<p>
-						Ad astra abyssosque! You've received a special commission from a mysterious friend.
+						Ad astra abyssosque! You've received a special commission from The Adventurers' Guild.
 						<br />
 						The rule is simple: never click a card twice.
 						<br />
