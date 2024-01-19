@@ -1,4 +1,5 @@
 import albedoImage from "../assets/albedo.webp";
+import alhaithamImage from "../assets/alhaitham.webp";
 import amberImage from "../assets/amber.webp";
 import aratakiIttoImage from "../assets/arataki_itto.webp";
 import ayakaImage from "../assets/ayaka.webp";
@@ -18,6 +19,7 @@ import doriImage from "../assets/dori.webp";
 import eulaImage from "../assets/eula.webp";
 import fischlImage from "../assets/fischl.webp";
 import ganyuImage from "../assets/ganyu.webp";
+import gorouImage from "../assets/gorou.webp";
 import huTaoImage from "../assets/hu_tao.webp";
 import jeanImage from "../assets/jean.webp";
 import kaedeharaKazuhaImage from "../assets/kaedehara_kazuha.webp";
@@ -26,7 +28,10 @@ import keqingImage from "../assets/keqing.webp";
 import kokomiImage from "../assets/kokomi.webp";
 import kleeImage from "../assets/klee.webp";
 import kujouSaraImage from "../assets/kujou_sara.webp";
+import laylaImage from "../assets/layla.webp";
 import lisaImage from "../assets/lisa.webp";
+import lyneyImage from "../assets/lyney.webp";
+import lynetteImage from "../assets/lynette.webp";
 import monaImage from "../assets/mona.webp";
 import nahidaImage from "../assets/nahida.webp";
 import nilouImage from "../assets/nilou.webp";
@@ -49,12 +54,14 @@ import xingqiuImage from "../assets/xingqiu.webp";
 import yaeMikoImage from "../assets/yae_miko.webp";
 import yanfeiImage from "../assets/yanfei.webp";
 import yaoyaoImage from "../assets/yaoyao.webp";
+import yelanImage from "../assets/yelan.webp";
 import yoimiyaImage from "../assets/yoimiya.webp";
 import zhongliImage from "../assets/zhongli.webp";
 
 // Hashmap for all available TCG character card
 const charImageMap: { [key: string]: string } = {
 	albedo: albedoImage,
+	alhaitham: alhaithamImage,
 	amber: amberImage,
 	"arataki-itto": aratakiIttoImage,
 	ayaka: ayakaImage,
@@ -74,6 +81,7 @@ const charImageMap: { [key: string]: string } = {
 	eula: eulaImage,
 	fischl: fischlImage,
 	ganyu: ganyuImage,
+	gorou: gorouImage,
 	"hu-tao": huTaoImage,
 	jean: jeanImage,
 	kazuha: kaedeharaKazuhaImage,
@@ -81,7 +89,10 @@ const charImageMap: { [key: string]: string } = {
 	keqing: keqingImage,
 	kokomi: kokomiImage,
 	klee: kleeImage,
+	layla: laylaImage,
 	lisa: lisaImage,
+	lyney: lyneyImage,
+	lynette: lynetteImage,
 	mona: monaImage,
 	nahida: nahidaImage,
 	nilou: nilouImage,
@@ -105,6 +116,7 @@ const charImageMap: { [key: string]: string } = {
 	"yae-miko": yaeMikoImage,
 	yanfei: yanfeiImage,
 	yaoyao: yaoyaoImage,
+	yelan: yelanImage,
 	yoimiya: yoimiyaImage,
 	zhongli: zhongliImage,
 };
@@ -112,6 +124,7 @@ const charImageMap: { [key: string]: string } = {
 function filterImage(charList: string[]) {
 	// Filter for all character that exist within the hashmap.
 	// This way we can only get those character that have the official TCG character image released.
+	console.log(charList)
 	const filteredList = charList.filter((charName) => charImageMap[charName]);
 	return filteredList;
 }
