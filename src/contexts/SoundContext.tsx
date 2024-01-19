@@ -10,6 +10,7 @@ import lumidouceHarbor from "../assets/audio/lumidouce_harbor.mp3";
 import dreamOfHomeland from "../assets/audio/dream_of_homeland.mp3";
 import hustleAndBustle from "../assets/audio/hustle_and_bustle_of_ormos.mp3";
 import queLeVent from "../assets/audio/que_le_vent_soit_doux.mp3";
+import theatreTroupe from "../assets/audio/theatre_troupe.mp3";
 import cardFlip from "../assets/audio/flip_card.mp3"
 
 interface soundContextType {
@@ -42,7 +43,7 @@ export const useSoundContext = () => useContext(SoundContext);
  * @returns
  */
 export const SoundProvider = ({ children }: SoundProviderProps) => {
-	const soundFiles = [angelsShare, catsTail, halcyonTimes, cakesAndAle, pluieSurLaVille, bustlingAfternoon, hustleAndBustle, queLeVent];
+	const soundFiles = [theatreTroupe, angelsShare, catsTail, halcyonTimes, cakesAndAle, pluieSurLaVille, bustlingAfternoon, hustleAndBustle, queLeVent];
 	const defeatTrack = dreamOfHomeland;
 	const winTrack = lumidouceHarbor;
 	const flipCard = cardFlip;
