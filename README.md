@@ -1,4 +1,4 @@
-# Memory Cards
+# Genshin Memory Cards (TCG)
 A fun fan-project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. See if you can beat the game at the insane level! 
 
 Link: https://memory-cards.pages.dev/ 🧩
