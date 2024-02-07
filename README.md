@@ -1,13 +1,13 @@
 # Genshin Memory Cards (TCG)
-A fun fan-project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. See if you can beat the game at the insane level! 
+A fun fan project that draws inspiration from Genshin Impact's TCG card game, infused with the challenge of a memory-based brain teaser. The **goal** is to **avoid clicking the same card twice** and make it to the end. See if you can beat the game at an insane level! 
 
 Link: https://memory-cards.pages.dev/ 🧩
 
 <img width="982" alt="Screenshot 2023-11-17 at 1 27 10 PM" src="https://github.com/NovaCat35/weather-app/assets/54908064/58fed792-1756-4c45-b8fe-5ca14901b49e">
 
 ## Disclaimers ⚠️
-This is a fan-made project base on the game Genshin Impact. This project features materials protected by the Fair Use guidelines of Section 107 of the Copyright Act. All rights reserved to the copyright owners. <br>
-Game premise is created based on this [React course](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) from The Odin Project. Much appreciation to this great source.
+This is a fan-made project based on the game Genshin Impact. This project features materials protected by the Fair Use guidelines of Section 107 of the Copyright Act. All rights reserved to the copyright owners. <br>
+The game premise is created based on this [React course](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) from The Odin Project. Much appreciation for this great source.
 
 ## Features 🎯
 - Loading screen (API fetching)
@@ -15,12 +15,17 @@ Game premise is created based on this [React course](https://www.theodinproject.
 - 3D Card styling 
 - Sound Option & Playlist
 
+## Build With 🚀
+- React (using Vite)
+- TypeScript
+- HTML/SCSS
+
 ## Challenges 😖
 Creator's note: this project was a deep dive into React, exploring hooks, contexts, and API integration for a complete game experience.
 
-Somewhere along the project, a key lesson learned involved managing large file uploads. After grappling with GitHub's LFS and upload issues with large videos and images, I ultimately had to re-optimize the way my file is set up, trim and rework larger uploads. While this is a cautionary tale of painstaking hours spent trying to make the game flow better I learned a lot about handling uploads and optimization for game flow.
+Somewhere along the project, a key lesson learned involved managing large file uploads. After grappling with GitHub's LFS and upload issues with large videos and images, I ultimately had to re-optimize the way my file is set up, trim, and rework larger uploads. While this is a cautionary tale of painstaking hours spent trying to make the game flow better I learned a lot about handling uploads and optimization for game flow.
 
-Another key takeaway is understanding rerendering, mounting and unmounting, and the different hooks within child contexts and levels. For example, there was some issue each individual card state never being set properly since the card component is constantly remounted when clicked on. These problems helped me better understand the rerendering processes and using effects and contexts for the future.
+Another key takeaway is understanding rerendering, mounting and unmounting, and the different hooks within child contexts and levels. For example, there was some issue with each card state never being set properly since the card component is constantly remounted when clicked on. These problems helped me better understand the rerendering processes and use effects and contexts for the future.
 
 ## Libraries 📚
 ```
